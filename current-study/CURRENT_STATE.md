@@ -1,75 +1,83 @@
 # Current State in Plain Language
 
-Updated: 14 August 2026
+Updated: 15 August 2026
 
-## Source-fidelity status
+## The short version
 
-The EVC draft is **not ready for another submission under a zero-reworking standard**. The four variable names match Kiiskilä et al. (2023), but H1-H3 are formulated from a qualitative findings diagram rather than copied from published hypotheses, and all 13 questionnaire items adapt wording or referents from other scales.
+The source problem has been solved with a new published study.
 
-Read [DIRECT_SOURCE_AUDIT.md](DIRECT_SOURCE_AUDIT.md) before using or revising the Word documents. It records the pass/fail result for each framework, variable, hypothesis, and questionnaire component.
+Steenkamp, Fisher, and Nesbit (2024) publish all four requested components in the same article:
+
+1. the actual research-model diagram (Figure 1);
+2. all 13 hypotheses in explicit H1-H13 form;
+3. the 11 variables shown in that model; and
+4. the complete 40-item coded construct questionnaire in the Appendix.
+
+This allows the thesis to become a direct-model replication instead of a framework assembled from several partly matching studies.
 
 ## What the study now asks
 
-The study asks why Thai university students would or would not intend to use a digital credential issued for an IT micro-credential.
+The study asks what influences Thai IT students' intention to use university-issued digital badges when applying for jobs. In the Thai study context, the badge represents an IT micro-credential and its verified skills.
 
-It tests three straightforward ideas:
+The model tests whether intention is related to:
 
-1. Students who feel confident that they can use digital credentials should have stronger intention to use them.
-2. Students who see digital credentials as useful and important should have stronger intention to use them.
-3. Students who see greater time, effort, or sacrifice in using digital credentials should have weaker intention to use them.
+- perceived usefulness;
+- perceived ease of use;
+- subjective norm;
+- image;
+- job application relevance;
+- result demonstrability;
+- computer self-efficacy;
+- perceptions of external control;
+- computer anxiety; and
+- computer playfulness.
 
-## What changed
+Perceived usefulness, perceived ease of use, and image are also endogenous variables in the same published model.
 
-The previous design combined recognition, stackability, industry endorsement, credential trust, and perceived value in an original survey experiment. Its main weakness was that no single published study supplied that complete borrowed framework, so it did not answer Professor Kimi's request for an actual prior framework clearly enough.
+## What is copied directly
 
-The current version uses a published framework from Kiiskilä, Kukkonen, and Pirkkalainen (2023). Our conceptual model selects three relationships shown in their Figure 1 and keeps the corresponding variable meanings:
+- Figure 1 is reproduced from the source article rather than redrawn.
+- The 13 paths and directional hypotheses are copied from the source article.
+- Construct names and item codes are retained.
+- The 40 English construct items are transcribed from the source Appendix.
+- The original seven-point Likert scale is retained.
+- The planned PLS-SEM analysis follows the source study's general measurement and structural-model procedure.
 
-- expectation of success in using digital credentials;
-- perceived value from using digital credentials;
-- perceived costs to use digital credentials; and
-- intention to use digital credentials.
+## What changes
 
-The three predictors point directly to intention. This makes the source-to-model trail visible and removes the unsupported experimental scenarios.
+Only the application context changes:
 
-## Questionnaire
+- New Zealand accounting students become Thai students in IT-related university programs.
+- The survey introduction explains that the university-issued digital badge represents completion of an IT micro-credential.
+- The required pilot and Thai translation process are added for the local study.
 
-The instrument currently has 13 construct questions, all answered on a six-point agreement scale:
+Those changes are labelled as contextual replication changes. They are not presented as parts of the original source study.
 
-- 3 expectation-of-success items adapted from Kosovich et al. (2015);
-- 3 perceived-value items adapted from Kosovich et al. (2015);
-- 4 perceived-cost items adapted from Kosovich et al. (2015); and
-- 3 intention items adapted from Venkatesh et al. (2003).
+## Source anomalies disclosed rather than hidden
 
-The evidence pack shows the proposed adapted items and their source mappings, but it does not reproduce every original item beside the adaptation. Miao et al. (2024) supports the micro-credential/intention context but is not presented as the source of the wording.
+The source Appendix contains three details that require transparent handling:
 
-## Method
+1. It shows 40 coded construct items, plus one unnumbered employer sentence after SN4. The article states that 40 items were analysed and Table 2 reports SN1-SN4 only, so the unnumbered sentence is not assigned a new code or used as a scale item.
+2. The source authors administered PEC4, CPLAY4, and RES4 but removed them during measurement-model assessment because their loadings were below .40. The Thai replication will administer all 40 original coded items and report any item removal from the Thai data rather than importing the original sample's deletion automatically.
+3. BI3 contains an apparent source typo, "use the when." The English source master and evidence pack both preserve it verbatim. A possible grammatical correction to "use them when" is identified for supervisor approval before the pilot; it has not been silently applied.
+
+## Method status
 
 - Quantitative, cross-sectional questionnaire survey.
 - Population: Thai university students in IT-related fields.
-- No interviews, vignettes, or randomized experiment.
 - Pilot: 40 eligible students, excluded from the main sample.
-- Main study: at least 384 usable responses, with a target of 400.
-- Planned analysis: reliability checks, descriptive statistics, correlations, and multiple linear regression in Jamovi.
-- The study can report associations and prediction, not causal effects or actual employment outcomes.
+- Main target: at least 384 usable responses, with a recruitment target of 400.
+- Instrument: 40 coded construct items on the source's seven-point agreement scale.
+- Analysis: reflective measurement-model assessment and PLS-SEM with 5,000 bootstrap samples.
+- No interviews, experimental vignettes, or employer-outcome claims.
 
-## What is drafted
+## What remains before data collection
 
-- Chapters 1 to 4 are drafted in the master document.
-- Chapter 3 contains the published framework, the study's conceptual framework, and hypotheses H1 to H3.
-- Chapter 4 contains the proposed sample, pilot, questionnaire, and analysis process.
-- The evidence pack contains a direct crop from the published framework, source mapping, and questionnaire adaptation tables.
-- Chapters 5 and 6 are honest reporting structures only; they contain no invented results.
-
-## What remains
-
-This is a source-informed proposal-stage draft, not a completed thesis or a strict direct replication. Before another submission or data collection it still needs:
-
-1. A source package that supplies the published framework, exact variables, explicit hypotheses, and exact questionnaire wording without inferred or rewritten components.
-2. Professor Kimi's confirmation that the selected direct-replication framework and questionnaire meet his requirement.
-3. Any university ethics or administrative approval that applies.
-4. Thai translation and back-translation of the approved questionnaire.
-5. The required pilot, followed by revisions based on its results.
+1. Supervisor confirmation that the direct-model replication is acceptable.
+2. His decision on the disclosed BI3 typographical correction.
+3. Thai forward translation and independent back-translation after English-item approval.
+4. Any required ethics or administrative approval.
+5. The required pilot, followed by documented decisions.
 6. Main data collection and analysis.
-7. Real results, discussion, limitations, appendices, and final formatting in Chapters 5 and 6.
 
-Do not treat the current EVC design as fixed or submission-ready. Preserve it as an audited draft while a fully traceable direct-replication source package is selected.
+The current package is now source-complete for framework, hypotheses, variables, and questionnaire evidence. It is still a proposal-stage draft, not an approved or completed thesis.

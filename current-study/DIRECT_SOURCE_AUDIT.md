@@ -1,52 +1,68 @@
 # Direct-Source Fidelity Audit
 
-Updated: 14 August 2026
+Updated: 15 August 2026
 
 ## Decision rule
 
-For this audit, an element passes only when it can be traced directly to a published study without changing its construct name, relationship, hypothesis, or questionnaire wording. A citation to a related idea is not enough. Selecting, inferring, renaming, combining, or changing the referent counts as adaptation.
+An element passes only when it can be traced to a published study without inventing a construct, relationship, hypothesis direction, or questionnaire statement. Geographic and population changes are permitted only when they are explicitly described as contextual replication changes.
 
-## Current EVC draft
+## Current direct-model route
 
-| Element | Current source | Verdict | Reason |
+Primary source:
+
+Steenkamp, N., Fisher, R., and Nesbit, T. (2024). *Understanding accounting students' intentions to use digital badges to showcase employability skills*. Accounting Education, 33(6), 906-934. https://doi.org/10.1080/09639284.2023.2276200
+
+| Element | Exact source location | Verdict | Reason |
 |---|---|---|---|
-| Published framework image | Kiiskilä et al. (2023), Figure 1 | Pass as a source reproduction | The evidence pack uses a direct crop of the published figure. |
-| Thesis conceptual framework | Selected paths from Kiiskilä et al. (2023), Figure 1 | Does not pass strict direct adoption | The thesis diagram is newly drawn and selects three paths from a larger qualitative findings model. |
-| Variable names | Kiiskilä et al. (2023), Figure 1 | Pass | The four labels are retained exactly: expectation of success in using digital credentials, perceived value from using digital credentials, perceived costs to use digital credentials, and intention to use digital credentials. |
-| H1-H3 | Inferred from Kiiskilä et al. (2023), Figure 1 and discussion | Fail | Kiiskilä et al. do not publish these as H1-H3 in a quantitative hypothesis model. The thesis authors the hypothesis statements and assigns positive or negative directions. |
-| Expectancy, value, and cost items | Kosovich et al. (2015), E1-E3, V1-V3, C1-C4 | Fail | All ten items change the original math/science-class referent to digital credentials for IT micro-credentials; several cost items also change tense and grammar. |
-| Intention items | Venkatesh et al. (2003), BI1-BI3 | Fail | All three items replace the original system and time referents with digital credentials for IT micro-credentials and "in the future." |
-| Overall research design | Kiiskilä et al. (2023) plus other scale papers | Fail as a direct replication | The framework source is a qualitative interview study, while the thesis converts selected findings into a cross-sectional regression survey. |
+| Published framework image | Figure 1, article p. 10 (PDF p. 11) | Pass | The package reproduces the source figure. It is not redrawn or synthesized. |
+| Thesis framework | Same complete Figure 1 | Pass | Every source node and arrow is retained; no path is added, removed, or redirected. |
+| Variable names | Figure 1, Appendix, and Table 2 | Pass with disclosed source spelling variation | The source's 11 construct labels and abbreviations are retained. The article itself alternates between British and American spelling of behavioural/behavioral. |
+| H1-H13 | Article pp. 11-13 (PDF pp. 12-14) | Pass | All 13 directional hypotheses are explicitly printed in the source. |
+| Construct questionnaire | Appendix, article pp. 28-29 (PDF pp. 29-30) | Pass | All 40 coded source items and the seven-point scale are printed in the article. |
+| Item-to-construct mapping | Appendix and Table 2 | Pass | Item codes map directly to the 11 source constructs. |
+| Analysis model | Research method and results sections | Pass as methodological replication | The source specifies reflective PLS-SEM, SmartPLS, 5,000 bootstrap samples, reliability, validity, VIF, path, and R-squared assessment. |
+| Thai IT population | Current study only | Context change, not a source claim | The source population is New Zealand accounting students. The new population is explicitly disclosed. |
+| IT micro-credential badge context | Current study only, supported by the source's distinction between badges and micro-credentials | Context change, not a source claim | Construct items remain about university-issued digital badges. The introduction defines the badge as representing an IT micro-credential. |
+
+## Questionnaire count check
+
+The Appendix prints exactly 40 coded items:
+
+| Construct | Codes | Count |
+|---|---:|---:|
+| Perceived Usefulness | PU1-PU4 | 4 |
+| Perceived Ease of Use | PEOU1-PEOU4 | 4 |
+| Computer Self-Efficacy | CSE1-CSE3 | 3 |
+| Perceptions of External Control | PEC1-PEC4 | 4 |
+| Computer Playfulness | CPLAY1-CPLAY4 | 4 |
+| Computer Anxiety | CANX1-CANX4 | 4 |
+| Subjective Norm | SN1-SN4 | 4 |
+| Image | IMG1-IMG3 | 3 |
+| Job Application Relevance | REL1-REL3 | 3 |
+| Result Demonstrability | RES1-RES4 | 4 |
+| Behavioral Intention | BI1-BI3 | 3 |
+| **Total** |  | **40** |
+
+## Disclosed source anomalies
+
+### Unnumbered employer sentence
+
+The source Appendix prints "Employers think that I should use university-issued digital badges when applying for jobs" after SN4 without an item code. The methods state that 40 items were used, and Table 2 reports only SN1-SN4. Therefore the current instrument does not invent SN5 or include the unnumbered sentence as a scored construct item.
+
+### Items removed in the source analysis
+
+The source administered 40 coded items and then removed PEC4, CPLAY4, and RES4 because their source-sample outer loadings were below .40. The current pilot will administer all 40 source items. Any removal will be based on the Thai data and reported, preserving the distinction between direct instrument adoption and sample-specific measurement decisions.
+
+### BI3 typographical issue
+
+The source Appendix prints "I would plan to use the when I apply for jobs..." The English source master and evidence pack reproduce that wording verbatim. A possible field correction changes only "the" to "them" and remains pending supervisor approval. No construct, referent, direction, or timeframe would change.
 
 ## Overall verdict
 
-The current EVC package is transparent and source-informed, but it is **not** a direct replication and must not be described as one. It does not meet a zero-reworking requirement for the hypotheses or questionnaire.
+The current direct-model route passes the requested source-fidelity test for the framework, hypotheses, variables, and questionnaire. It should be described as a contextual replication, not as an original framework and not as a full literal replication of the source population or procedures.
 
-## Strongest direct-replication candidate reviewed
+## Automated verification
 
-Miao et al. (2024), *Intention to use technology for micro-credential programs: Evidence from technology acceptance and self-determination model*, publishes:
+`tools/audit_direct_replication.py` independently checks the source PDF, direct image crops, and both Word documents. On 15 August 2026 it confirmed the pixel-exact source images, 13/13 hypotheses, 11/11 constructs, and 40/40 exact source items. The retained source PDF has SHA-256 `b4966d48b892f4fb041b1397937a25b1c3fec6c867d7a2b6ac758a4e67530752`.
 
-- a complete conceptual framework in Figure 1;
-- the construct names used in that framework;
-- eight explicit hypotheses, H1-H8; and
-- the number and literature source of the questionnaire items for each construct.
-
-However, the article does **not** print the wording of its 32 questionnaire items, and its PDF has no embedded supplementary instrument. Therefore, Miao et al. cannot yet pass the questionnaire test. The exact questionnaire must first be obtained from the study authors or from an authenticated supplementary source and checked item by item.
-
-## Required gate before another submission
-
-Do not label a revised package "directly borrowed" or "ready for Professor Kimi" until one source package passes all of the following checks:
-
-1. The published framework figure is reproduced with its citation and page or figure number.
-2. Every thesis variable has exactly the same name as in that framework.
-3. Every thesis path and hypothesis is explicitly present in the source study; no direction is inferred.
-4. Every questionnaire item is shown beside the exact source item and is identical, apart from an approved Thai translation.
-5. Any population or geographic change is disclosed as replication in a new sample, not as a new model.
-6. The source PDFs or authenticated supplementary files are retained in the repository's source index.
-
-## Primary sources checked
-
-- Kiiskilä, P., Kukkonen, A., and Pirkkalainen, H. (2023). *Are micro-credentials valuable for students? Perspective on verifiable digital credentials*. SN Computer Science, 4, Article 366. https://doi.org/10.1007/s42979-023-01797-y
-- Kosovich, J. J., Hulleman, C. S., Barron, K. E., and Getty, S. (2015). *A practical measure of student motivation: Establishing validity evidence for the expectancy-value-cost scale in middle school*. The Journal of Early Adolescence, 35(5-6), 790-816. https://doi.org/10.1177/0272431614556890
-- Venkatesh, V., Morris, M. G., Davis, G. B., and Davis, F. D. (2003). *User acceptance of information technology: Toward a unified view*. MIS Quarterly, 27(3), 425-478. https://doi.org/10.2307/30036540
-- Miao, M., Ahmed, M., Ahsan, N., and Qamar, B. (2024). *Intention to use technology for micro-credential programs: Evidence from technology acceptance and self-determination model*. International Journal of Educational Management, 38(4), 948-977. https://doi.org/10.1108/IJEM-02-2023-0066
+The earlier EVC route remains a transparent historical draft but fails this strict standard because it inferred quantitative hypotheses from a qualitative framework and changed every questionnaire referent.

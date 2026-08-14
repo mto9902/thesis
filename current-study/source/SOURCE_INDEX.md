@@ -1,35 +1,36 @@
 # Source Index
 
-## Included framework source
+## Current direct source
 
-Kiiskilä, P., Kukkonen, A., and Pirkkalainen, H. (2023). *Are micro-credentials valuable for students? Perspective on verifiable digital credentials*. SN Computer Science, 4, Article 366. [https://doi.org/10.1007/s42979-023-01797-y](https://doi.org/10.1007/s42979-023-01797-y)
+Steenkamp, N., Fisher, R., and Nesbit, T. (2024). *Understanding accounting students' intentions to use digital badges to showcase employability skills*. Accounting Education, 33(6), 906-934. https://doi.org/10.1080/09639284.2023.2276200
 
-- Local article: `Kiiskila_2023_Are_MC_valuable_students.pdf`
-- Local rendered source page: `kiiskila_page_366.png`
-- Exact framework location: Figure 1 on the article page numbered 366.
-- Use in this thesis: the paths from expectation of success, perceived value, and perceived costs to intention to use digital credentials.
-- The output named `Published_Framework_Kiiskila_Figure_1_Direct_Crop.png` is a crop of that source page, not a recreated diagram.
-- The article is published open access under a Creative Commons Attribution 4.0 licence; retain its citation whenever reproducing the figure.
+- Local article: `Steenkamp_2024_Digital_Badges.pdf`
+- Repository record: https://hdl.handle.net/10092/106569
+- Published research model: Figure 1 on article p. 10 (PDF p. 11).
+- Published hypotheses: H1-H13 on article pp. 11-13 (PDF pp. 12-14).
+- Questionnaire method and item count: article pp. 13 and 15 (PDF pp. 14 and 16).
+- Exact construct-item Appendix: article pp. 28-29 (PDF pp. 29-30).
+- Source analysis: Table 2 and accompanying measurement-model discussion on article pp. 15-16.
+- License stated in the article: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0. All reproduced images are direct, content-unaltered source excerpts with citation.
 
-## Questionnaire wording sources
+### Retained source images
 
-Kosovich, J. J., Hulleman, C. S., Barron, K. E., and Getty, S. (2015). *A practical measure of student motivation: Establishing validity evidence for the expectancy-value-cost scale in middle school*. The Journal of Early Adolescence, 35(5-6), 790-816. [https://doi.org/10.1177/0272431614556890](https://doi.org/10.1177/0272431614556890)
+- `steenkamp_page_10_model.png`: unaltered rendered source page containing Figure 1.
+- `steenkamp_page_28_appendix.png`: unaltered rendered source page containing the first questionnaire Appendix page.
+- `steenkamp_page_29_appendix.png`: unaltered rendered source page containing the second questionnaire Appendix page.
 
-- Evidence used: published Appendix items E1-E3, V1-V3, and C1-C4.
-- Use in this thesis: adapted wording for expectation of success, perceived value, and perceived costs.
+### Current output excerpts
 
-Venkatesh, V., Morris, M. G., Davis, G. B., and Davis, F. D. (2003). *User acceptance of information technology: Toward a unified view*. MIS Quarterly, 27(3), 425-478. [https://doi.org/10.2307/30036540](https://doi.org/10.2307/30036540)
+- `../outputs/Published_Framework_Steenkamp_Figure_1_Direct_Crop.png`
+- `../outputs/Published_Questionnaire_Steenkamp_Appendix_p28_Direct_Crop.png`
+- `../outputs/Published_Questionnaire_Steenkamp_Appendix_p29_Direct_Crop.png`
 
-- Evidence used: behavioral-intention items BI1-BI3 on page 460.
-- Use in this thesis: adapted wording for intention to use digital credentials.
+These are direct crops. The source boxes, labels, arrows, item wording, and captions were not redrawn or edited.
 
-## Same-field contextual support
+## Supporting theory and context
 
-Miao, M., Ahmed, F., Ahsan, M., and Qamar, B. (2024). *Intention to use technology for micro-credential programs: Evidence from technology acceptance and self-determination model*. International Journal of Educational Management, 38(4), 948-977. [https://doi.org/10.1108/IJEM-02-2023-0066](https://doi.org/10.1108/IJEM-02-2023-0066)
+The generated documents cite the source article's principal foundations, including Davis (1989), Venkatesh and Davis (2000), Venkatesh and Bala (2008), Venkatesh et al. (2003), and Sykes et al. (2014). Miao et al. (2024), Kiiskilä et al. (2023), and UNESCO (2022) support the micro-credential and digital-credential context; they are not claimed as sources of the current model or 40-item questionnaire.
 
-- Use in this thesis: evidence that intention can be studied in a micro-credential context.
-- Boundary: this paper is not claimed as the source of the 13 questionnaire items.
+## Archived EVC source
 
-## Supporting sources
-
-The complete references used for theory, definitions, pilot size, sampling, translation, and analysis are listed in both generated Word documents. Only the open-access framework article is copied into this package; other publications should be accessed through their DOI, the university library, or a lawful open-access copy.
+`Kiiskila_2023_Are_MC_valuable_students.pdf` and `kiiskila_page_366.png` supported the previous EVC route. That route is retained for audit history but is no longer the current framework.

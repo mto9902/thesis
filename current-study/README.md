@@ -1,38 +1,49 @@
 # Current Thesis Study
 
-This folder is the portable working package for Min Thiha Oo's current master's thesis reconstruction. It is intended to be the starting point on a new computer or in a new Codex session.
+This folder is the portable working package for Min Thiha Oo's current master's thesis reconstruction.
 
-## Current topic
+## Current route
 
-**Factors Influencing Intention to Use Digital Credentials for IT Micro-Credentials among Thai University Students: An Expectancy-Value-Cost Study**
+**Understanding Thai IT Students' Intentions to Use University-Issued Digital Badges to Showcase Employability Skills: A Direct-Model Replication of Steenkamp, Fisher, and Nesbit (2024)**
 
-This replaces the earlier survey experiment about recognition, stackability, industry endorsement, trust, and perceived value. The earlier files at the repository root are retained as research history; they are not the current design.
+The framework, 13 hypotheses, 11 constructs, and 40 coded questionnaire items now come from one published study. The source study investigated accounting students in New Zealand. The thesis changes the population to Thai university students in IT-related programs and treats a university-issued digital badge as the verifiable representation of an IT micro-credential. It does not add, remove, or rename paths in the published model.
+
+The earlier expectancy-value-cost (EVC) files remain in this folder as an audited historical route. They are not the current design and must not be submitted as a direct replication.
 
 ## Start here
 
-1. Read [CURRENT_STATE.md](CURRENT_STATE.md) for the plain-language research status and remaining work.
-2. Read [DIRECT_SOURCE_AUDIT.md](DIRECT_SOURCE_AUDIT.md) for the strict pass/fail audit requested after Professor Kimi's feedback.
-3. Open [Master_Thesis_EVC_Digital_Credentials_Thai_IT_Students.docx](outputs/Master_Thesis_EVC_Digital_Credentials_Thai_IT_Students.docx) only as an audited working draft, not a submission-ready direct replication.
-4. Open [Evidence_Pack_Published_Framework_and_Questionnaire.docx](outputs/Evidence_Pack_Published_Framework_and_Questionnaire.docx) for the borrowed framework, questionnaire origins, and adaptation trail.
-5. Read [SOURCE_INDEX.md](source/SOURCE_INDEX.md) before changing the framework or questionnaire.
+1. Read [CURRENT_STATE.md](CURRENT_STATE.md) for the plain-language status.
+2. Read [DIRECT_SOURCE_AUDIT.md](DIRECT_SOURCE_AUDIT.md) for the strict source-fidelity decision.
+3. Read [DIRECT_REPLICATION_SPEC.md](DIRECT_REPLICATION_SPEC.md) for the exact constructs, hypotheses, items, and disclosed changes.
+4. Open `outputs/Master_Thesis_Direct_Replication_Digital_Badges_Thai_IT_Students.docx` for the chaptered draft.
+5. Open `outputs/Evidence_Pack_Direct_Framework_Hypotheses_Questionnaire.docx` for the source screenshots and item-level provenance.
+6. Read [SOURCE_INDEX.md](source/SOURCE_INDEX.md) before changing the framework or questionnaire.
 
-## Rebuild the documents
+## Rebuild the current documents
 
-From the repository root on macOS or Linux:
+From the repository root:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r current-study/tools/requirements.txt
-python current-study/tools/build_documents.py
+python current-study/tools/build_direct_replication.py
 ```
 
-On Windows, activate the environment with `.venv\\Scripts\\activate` and run the same two Python commands. The builder resolves all paths relative to this folder and recreates both Word files and both figures in `current-study/outputs/`.
+Then run the literal source audit:
+
+```bash
+python current-study/tools/audit_direct_replication.py
+```
+
+The audit compares all 13 hypotheses and all 40 coded items with the published source PDF and verifies their presence in both current Word documents.
+
+The older `build_documents.py` script rebuilds only the archived EVC route.
 
 ## Package boundaries
 
-- The checked-in Word files are review copies that can be opened without running code.
-- The builder script is the editable source of truth for generated prose, tables, questionnaire items, and diagrams.
-- The Kiiskilä et al. article is included because it is the exact open-access framework source used in the evidence pack.
-- Private email exports, medical information, AU credentials, proxy settings, temporary PDF renders, and document QA screenshots are intentionally excluded.
-- Do not enter participant data, names, email addresses, or consent records in this public repository.
+- The checked-in Word files are proposal-stage review copies.
+- `build_direct_replication.py` is the editable source of truth for the current documents.
+- The Steenkamp et al. article is retained because it contains the exact published model, hypotheses, and questionnaire appendix used here.
+- Private email, health information, AU credentials, proxy settings, temporary renders, and participant data are excluded.
+- Chapters 5 and 6 contain placeholders only. No findings are claimed before real data collection and analysis.
