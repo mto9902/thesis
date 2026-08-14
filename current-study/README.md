@@ -11,9 +11,10 @@ This replaces the earlier survey experiment about recognition, stackability, ind
 ## Start here
 
 1. Read [CURRENT_STATE.md](CURRENT_STATE.md) for the plain-language research status and remaining work.
-2. Open [Master_Thesis_EVC_Digital_Credentials_Thai_IT_Students.docx](outputs/Master_Thesis_EVC_Digital_Credentials_Thai_IT_Students.docx) for the thesis draft.
-3. Open [Evidence_Pack_Published_Framework_and_Questionnaire.docx](outputs/Evidence_Pack_Published_Framework_and_Questionnaire.docx) for the borrowed framework, questionnaire origins, and adaptation trail.
-4. Read [SOURCE_INDEX.md](source/SOURCE_INDEX.md) before changing the framework or questionnaire.
+2. Read [DIRECT_SOURCE_AUDIT.md](DIRECT_SOURCE_AUDIT.md) for the strict pass/fail audit requested after Professor Kimi's feedback.
+3. Open [Master_Thesis_EVC_Digital_Credentials_Thai_IT_Students.docx](outputs/Master_Thesis_EVC_Digital_Credentials_Thai_IT_Students.docx) only as an audited working draft, not a submission-ready direct replication.
+4. Open [Evidence_Pack_Published_Framework_and_Questionnaire.docx](outputs/Evidence_Pack_Published_Framework_and_Questionnaire.docx) for the borrowed framework, questionnaire origins, and adaptation trail.
+5. Read [SOURCE_INDEX.md](source/SOURCE_INDEX.md) before changing the framework or questionnaire.
 
 ## Rebuild the documents
 
