@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 from PIL import Image
@@ -17,7 +18,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = PROJECT_ROOT / "outputs"
 SOURCE_DIR = PROJECT_ROOT / "source"
 
-MASTER_OUT = OUTPUTS / "Master_Thesis_Direct_Replication_Digital_Badges_Thai_IT_Students.docx"
+MASTER_OUT = OUTPUTS / "Master_Thesis_Digital_Badges_Thai_IT_Students.docx"
 EVIDENCE_OUT = OUTPUTS / "Evidence_Pack_Direct_Framework_Hypotheses_Questionnaire.docx"
 
 SOURCE_MODEL_PAGE = SOURCE_DIR / "steenkamp_page_10_model.png"
@@ -29,10 +30,10 @@ APPENDIX_28_CROP = OUTPUTS / "Published_Questionnaire_Steenkamp_Appendix_p28_Dir
 APPENDIX_29_CROP = OUTPUTS / "Published_Questionnaire_Steenkamp_Appendix_p29_Direct_Crop.png"
 
 TITLE = (
-    "Understanding Thai IT Students' Intentions to Use University-Issued "
-    "Digital Badges to Showcase Employability Skills"
+    "Factors Influencing Thai IT Students' Intentions to Use University-Issued "
+    "Digital Badges for IT Micro-Credentials in Job Applications"
 )
-SUBTITLE = "A Direct-Model Replication of Steenkamp, Fisher, and Nesbit (2024)"
+SUBTITLE = "A Quantitative Study Using an Extended Technology Acceptance Model"
 
 BLUE = RGBColor(31, 78, 121)
 GRAY = RGBColor(89, 89, 89)
@@ -251,6 +252,74 @@ REFERENCES = [
 assert len(ITEMS) == 40
 
 
+OPERATIONAL_DEFINITIONS = {
+    "PU": (
+        "The extent to which a student believes that using a university-issued digital badge "
+        "will improve the effectiveness and quality of a job application."
+    ),
+    "PEOU": (
+        "The extent to which a student believes that using a university-issued digital badge "
+        "will be clear, understandable, and free of effort."
+    ),
+    "CSE": "A student's belief in their ability to complete computer-based tasks.",
+    "PEC": (
+        "A student's perception that the resources, knowledge, opportunities, and support needed "
+        "to use digital badges are available."
+    ),
+    "CPLAY": "The degree of cognitive spontaneity a student experiences when interacting with computers.",
+    "CANX": "A student's apprehension or uneasiness when faced with using computers.",
+    "SN": (
+        "The extent to which a student perceives that important people and the university expect "
+        "or support the use of digital badges in job applications."
+    ),
+    "IMG": (
+        "The extent to which a student believes that using digital badges will enhance status, "
+        "prestige, or profile."
+    ),
+    "REL": (
+        "The extent to which a student believes that digital badges are applicable and pertinent "
+        "to job-search and job-application activities."
+    ),
+    "RES": (
+        "The extent to which a student believes that the results of using digital badges are "
+        "tangible, observable, and communicable."
+    ),
+    "BI": (
+        "A student's stated intention or plan to use university-issued digital badges when "
+        "applying for jobs."
+    ),
+}
+
+
+CONSTRUCT_THEORY_SOURCES = {
+    "PU": "Davis (1989); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "PEOU": "Davis (1989); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "CSE": "Venkatesh (2000); Sykes et al. (2014); Steenkamp et al. (2024)",
+    "PEC": "Venkatesh (2000); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "CPLAY": "Venkatesh (2000); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "CANX": "Venkatesh et al. (2003); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "SN": "Venkatesh and Davis (2000); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "IMG": "Venkatesh and Davis (2000); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "REL": "Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "RES": "Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+    "BI": "Venkatesh and Davis (2000); Venkatesh and Bala (2008); Steenkamp et al. (2024)",
+}
+
+
+THESIS_HYPOTHESES = [
+    (code, statement.replace("Perceptions of external control has", "Perceptions of external control have"))
+    for code, statement in HYPOTHESES
+]
+
+
+FIELD_ITEM_CORRECTIONS = {
+    "BI3": (
+        "If I had access to university-issued digital badges, I would plan to use them when I "
+        "apply for jobs in the next 12 months."
+    )
+}
+
+
 def prepare_source_excerpts() -> None:
     OUTPUTS.mkdir(parents=True, exist_ok=True)
     required = [SOURCE_MODEL_PAGE, SOURCE_APPENDIX_28, SOURCE_APPENDIX_29]
@@ -326,7 +395,7 @@ def add_bullets(doc: Document, entries: list[str]) -> None:
         p.paragraph_format.first_line_indent = None
         p.paragraph_format.left_indent = Inches(0.4)
         p.paragraph_format.space_after = Pt(2)
-        p.add_run(entry)
+        p.add_run(" " + entry)
 
 
 def add_numbered(doc: Document, entries: list[str]) -> None:
@@ -441,8 +510,19 @@ def add_table(
     fix_table_geometry(doc.tables[-1], widths)
 
 
-def add_figure(doc: Document, path: Path, caption: str, *, width: float = 5.9) -> None:
+def add_figure(
+    doc: Document,
+    path: Path,
+    caption: str,
+    *,
+    width: float = 5.9,
+    alt_text: str | None = None,
+) -> None:
     base.add_figure(doc, path, caption, width=width)
+    if alt_text:
+        doc_pr = doc.inline_shapes[-1]._inline.docPr
+        doc_pr.set("title", "Conceptual framework")
+        doc_pr.set("descr", alt_text)
 
 
 def add_source_note(doc: Document, text: str) -> None:
@@ -456,8 +536,8 @@ def add_source_note(doc: Document, text: str) -> None:
     r.font.color.rgb = GRAY
 
 
-def add_hypotheses(doc: Document) -> None:
-    for code, statement in HYPOTHESES:
+def add_hypotheses(doc: Document, hypotheses=HYPOTHESES) -> None:
+    for code, statement in hypotheses:
         p = doc.add_paragraph()
         p.paragraph_format.first_line_indent = None
         p.paragraph_format.left_indent = Inches(0.25)
@@ -480,8 +560,17 @@ def add_references(doc: Document, *, font_size: float = 10.5, space_after: float
             run.font.size = Pt(font_size)
 
 
-def source_master_item(source_text: str) -> str:
-    return source_text
+def narrative_source_list(source_text: str) -> str:
+    sources = source_text.split("; ")
+    if len(sources) == 1:
+        return sources[0]
+    if len(sources) == 2:
+        return " and ".join(sources)
+    return ", ".join(sources[:-1]) + ", and " + sources[-1]
+
+
+def questionnaire_item_text(code: str, source_text: str) -> str:
+    return FIELD_ITEM_CORRECTIONS.get(code, source_text)
 
 
 def add_questionnaire(doc: Document, *, include_sources: bool = True) -> None:
@@ -497,34 +586,32 @@ def add_questionnaire(doc: Document, *, include_sources: bool = True) -> None:
             "Strongly agree",
         ],
     ]
-    add_table(doc, scale_rows, [0.885, 0.885, 0.885, 0.885, 0.885, 0.885, 0.89], caption="Seven-point response scale reproduced from Steenkamp et al. (2024)", font_size=7.4)
+    add_table(
+        doc,
+        scale_rows,
+        [0.8854166667, 0.8854166667, 0.8854166667, 0.8854166667, 0.8854166667, 0.8854166667, 0.8875],
+        caption="Table 4.2: Seven-point agreement scale",
+        font_size=7.4,
+    )
 
     grouped: dict[str, list[tuple[str, str, str]]] = {}
     for code, construct, source_text, prior_source in ITEMS:
         grouped.setdefault(construct, []).append((code, source_text, prior_source))
 
-    for construct, group in grouped.items():
-        doc.add_heading(construct, level=2)
-        if include_sources:
-            add_source_note(
-                doc,
-                "Direct item source: Steenkamp et al. (2024), Appendix, pp. 28-29. "
-                f"The source article identifies: {group[0][2]}.",
-            )
-        for code, source_text, _ in group:
-            wording = source_master_item(source_text)
-            p = doc.add_paragraph()
-            p.paragraph_format.first_line_indent = None
-            p.paragraph_format.left_indent = Inches(0.25)
-            p.paragraph_format.hanging_indent = Inches(0.25)
-            p.paragraph_format.space_after = Pt(5)
-            r = p.add_run(f"{code}. ")
-            r.bold = True
-            p.add_run(wording)
-            if code == "BI3":
-                r = p.add_run(" [Source wording retained verbatim; correction requires approval.]")
-                r.italic = True
-                r.font.size = Pt(9)
+    for table_number, (construct, group) in enumerate(grouped.items(), start=3):
+        heading = "Behavioural Intention" if construct == "Behavioral Intention" else construct
+        doc.add_heading(heading, level=3)
+        rows = [["Code", "Questionnaire statement", "Measurement source"]]
+        for code, source_text, prior_source in group:
+            source = f"Steenkamp et al. (2024); {prior_source}" if include_sources else ""
+            rows.append([code, questionnaire_item_text(code, source_text), source])
+        add_table(
+            doc,
+            rows,
+            [0.55, 4.1, 1.55],
+            caption=f"Table 4.{table_number}: {heading} measurement items",
+            font_size=8.0,
+        )
 
 
 def add_toc_page(doc: Document) -> None:
@@ -532,13 +619,9 @@ def add_toc_page(doc: Document) -> None:
     for label, page in [
         ("CHAPTER 1: INTRODUCTION", 4),
         ("CHAPTER 2: LITERATURE REVIEW", 7),
-        ("CHAPTER 3: RESEARCH FRAMEWORK", 9),
-        ("CHAPTER 4: RESEARCH METHODOLOGY", 12),
-        ("CHAPTER 5: RESEARCH RESULTS", 14),
-        ("CHAPTER 6: DISCUSSION AND CONCLUSION", 15),
-        ("References", 16),
-        ("Appendix A: English Source Questionnaire for Pilot Review", 17),
-        ("Appendix B: Source Measurement Decisions", 21),
+        ("CHAPTER 3: RESEARCH FRAMEWORK", 11),
+        ("CHAPTER 4: RESEARCH METHODOLOGY", 15),
+        ("References", 22),
     ]:
         base.add_contents_entry(doc, label, page, bold=True)
     doc.add_page_break()
@@ -546,27 +629,34 @@ def add_toc_page(doc: Document) -> None:
 
 def build_master() -> None:
     doc = Document()
-    configure_document(doc, "Direct-model replication | Thai IT students")
-    title_page(doc, TITLE, SUBTITLE, "Master's Thesis Working Draft")
+    configure_document(doc, "Digital badges for IT micro-credentials | Thai IT students")
+    title_page(doc, TITLE, SUBTITLE, "Master's Thesis")
 
-    doc.add_heading("Draft Status", level=1)
-    add_note(
-        doc,
-        "Proposal-stage draft. Chapters 1-4 and the English source questionnaire are prepared for "
-        "review. Chapters 5-6 contain reporting structures only. No approval, pilot result, main-study "
-        "result, or employment outcome is claimed.",
-    )
     doc.add_heading("Abstract", level=1)
     add_body(
         doc,
-        "This study proposes a contextual replication of Steenkamp, Fisher, and Nesbit's published "
-        "model of university students' intentions to use digital badges in job applications. The "
-        "population is Thai university students in IT-related programs, and the focal badge is the "
-        "university-issued digital representation of an IT micro-credential. The complete source model, "
-        "its 13 hypotheses, 11 constructs, 40 coded questionnaire items, and seven-point response scale "
-        "are retained. After a required pilot, the main cross-sectional survey will be analysed using "
-        "reflective PLS-SEM. The study is designed to test whether the source model transfers to a new "
-        "disciplinary and national setting; it will not establish actual employability or employer behaviour.",
+        "University-issued digital badges can provide students with a verifiable way to present learning "
+        "achievements from IT micro-credentials in job applications. Their practical value, however, "
+        "depends partly on whether students intend to use them. This study examines the factors associated "
+        "with Thai IT students' intentions to use university-issued digital badges when applying for jobs. "
+        "The conceptual framework and questionnaire are adopted from the extended Technology Acceptance "
+        "Model developed for digital badges by Steenkamp, Fisher, and Nesbit (2024). The model contains 11 "
+        "constructs and 13 hypothesised relationships involving perceived usefulness, perceived ease of use, "
+        "social influence, job relevance, facilitating conditions, computer-related beliefs, and behavioural "
+        "intention. A quantitative cross-sectional survey will be conducted with students aged 18 years or "
+        "older who are enrolled in IT-related university programmes in Thailand. Following a pilot study of "
+        "40 eligible students, at least 384 usable responses will be collected for the main study. The "
+        "measurement and structural models will be assessed using partial least squares structural equation "
+        "modelling. The findings are expected to extend evidence on student adoption of digital credentials "
+        "and inform Thai universities considering IT micro-credential badge initiatives.",
+        no_indent=True,
+    )
+    p = doc.add_paragraph()
+    p.paragraph_format.first_line_indent = None
+    p.add_run("Keywords: ").bold = True
+    p.add_run(
+        "digital badges, micro-credentials, technology acceptance model, behavioural intention, "
+        "Thai IT students"
     )
     doc.add_page_break()
     add_toc_page(doc)
@@ -575,54 +665,54 @@ def build_master() -> None:
     doc.add_heading("1.1 Background of the Study", level=2)
     add_body(
         doc,
-        "Micro-credentials record learning outcomes gained through a small volume of learning, while "
-        "digital badges are visual and verifiable tokens that can represent learning and achievement "
-        "(Council of the European Union, 2022; UNESCO, 2022; Steenkamp et al., 2024). The two terms are "
-        "related but not interchangeable: a digital badge can be used as the portable representation of "
-        "a micro-credential and can contain information about the issuer, recipient, criteria, and "
-        "achievement. This distinction allows the present study to remain in the IT micro-credential "
-        "context while measuring students' acceptance of the university-issued badge used to communicate "
-        "that credential.",
+        "Micro-credentials certify learning outcomes acquired through a comparatively small volume of "
+        "learning and are intended to support flexible learning and employability (Council of the European "
+        "Union, 2022; UNESCO, 2022). A digital badge is a visual and potentially verifiable representation "
+        "of an achievement. It can contain information about the issuer, recipient, assessment criteria, "
+        "and learning outcome (Kiiskila et al., 2023; Steenkamp et al., 2024). Although the terms are related, "
+        "the micro-credential is the record of learning, whereas the badge is one way of representing and "
+        "sharing that record.",
     )
     add_body(
         doc,
-        "For students, the potential benefit is practical. A verifiable badge can be displayed through "
-        "online profiles or job-application materials so that skills not fully visible on a traditional "
-        "transcript can be communicated to potential employers. That benefit depends on student adoption. "
-        "If students do not regard badges as useful, relevant, manageable, or socially supported, the "
-        "credential's signalling function may not be used even when the badge is technically available "
-        "(Steenkamp et al., 2024).",
+        "For university students, a badge may provide an additional way to communicate skills in online "
+        "profiles and job-application materials. The availability of a badge does not necessarily mean that "
+        "students will use it. Adoption may depend on whether students regard the badge as useful and easy to "
+        "use, whether important people and institutions support its use, whether it is relevant to job "
+        "applications, and whether students have the confidence and resources needed to use it (Steenkamp et "
+        "al., 2024).",
     )
     add_body(
         doc,
-        "Steenkamp et al. (2024) developed and tested an extended, context-specific Technology "
-        "Acceptance Model for university-issued digital badges. Their article is unusually suitable as a "
-        "replication source because it publishes the complete research model, every directional hypothesis, "
-        "the construct-item Appendix, and the analysis procedure. The present study applies that model to "
-        "Thai students in IT-related programs rather than assembling a new framework from partly matching "
-        "sources.",
+        "The Technology Acceptance Model (TAM) explains technology use through beliefs about usefulness and "
+        "ease of use (Davis, 1989). Later extensions identify social influence, task relevance, perceived "
+        "control, computer self-efficacy, computer anxiety, and computer playfulness as additional determinants "
+        "of acceptance (Venkatesh, 2000; Venkatesh & Bala, 2008). Steenkamp et al. (2024) applied these "
+        "relationships specifically to university-issued digital badges used in job applications. The present "
+        "study applies that established model to IT students in Thailand.",
     )
 
     doc.add_heading("1.2 Statement of the Problem", level=2)
     add_body(
         doc,
-        "The practical problem is that issuing an IT micro-credential and its digital badge does not by "
-        "itself ensure that students will use the badge in job applications. Universities need evidence "
-        "about the beliefs and conditions associated with intended use. The reviewed source study provides "
-        "that evidence for accounting students at one New Zealand university, but it does not establish "
-        "whether the same model operates among Thai IT students. A contextual replication can test the "
-        "transferability of the published relationships while preserving a fully traceable framework and "
-        "questionnaire.",
+        "Universities may invest in IT micro-credentials and digital-badge systems without knowing whether "
+        "students will use the badges when seeking employment. Existing research has examined digital-badge "
+        "adoption among accounting students in New Zealand (Steenkamp et al., 2024) and technology use for "
+        "micro-credential programmes in other national settings (Miao et al., 2024). Evidence remains limited "
+        "for students in IT-related programmes in Thailand. Without such evidence, Thai universities have "
+        "little empirical guidance on the beliefs and conditions most closely associated with students' "
+        "intention to use university-issued badges in job applications. This study addresses that gap by "
+        "testing an established digital-badge acceptance model in the Thai IT-student context.",
     )
 
     doc.add_heading("1.3 Research Objectives", level=2)
     add_numbered(
         doc,
         [
-            "To describe Thai IT students' perceived usefulness and perceived ease of use of university-issued digital badges for job applications.",
             "To assess Thai IT students' intention to use university-issued digital badges when applying for jobs.",
-            "To test the 13 direct relationships published in Steenkamp et al.'s research model using a Thai IT-student sample.",
-            "To evaluate whether the source study's reflective measurement model demonstrates acceptable reliability and validity in the Thai context.",
+            "To examine the effects of perceived usefulness, perceived ease of use, and subjective norm on behavioural intention.",
+            "To examine the effects of perceived ease of use, subjective norm, image, job application relevance, and result demonstrability on perceived usefulness.",
+            "To examine the effects of computer self-efficacy, perceptions of external control, computer anxiety, and computer playfulness on perceived ease of use.",
         ],
     )
 
@@ -630,16 +720,11 @@ def build_master() -> None:
     add_numbered(
         doc,
         [
-            "What are Thai IT students' perceptions of the usefulness and ease of use of university-issued digital badges designed to showcase employability skills?",
-            "What general factors influence Thai IT students' perceptions of the usefulness and ease of use of those digital badges?",
             "To what extent do Thai IT students intend to use university-issued digital badges to showcase employability skills in job applications?",
-            "Does the complete published Steenkamp et al. model demonstrate comparable measurement and structural relationships in the Thai IT-student context?",
+            "How do perceived usefulness, perceived ease of use, and subjective norm influence behavioural intention?",
+            "How do perceived ease of use, subjective norm, image, job application relevance, and result demonstrability influence perceived usefulness?",
+            "How do computer self-efficacy, perceptions of external control, computer anxiety, and computer playfulness influence perceived ease of use?",
         ],
-    )
-    add_source_note(
-        doc,
-        "RQ1-RQ3 retain the content of Steenkamp et al.'s first three research questions while changing "
-        "the population from accounting students to Thai IT students. RQ4 states the replication objective.",
     )
 
     doc.add_heading("1.5 Scope of the Research", level=2)
@@ -648,9 +733,9 @@ def build_master() -> None:
         [
             "Population: university students aged 18 or above who are enrolled in an IT-related program in Thailand.",
             "Focal object: a university-issued digital badge representing completion of an IT micro-credential and usable in job applications.",
-            "Variables: the complete 11-construct model published by Steenkamp et al. (2024).",
-            "Instrument: the 40 coded construct items printed in the source Appendix, using its seven-point agreement scale.",
-            "Method: required pilot followed by a cross-sectional questionnaire survey and PLS-SEM.",
+            "Variables: 11 constructs from the extended Technology Acceptance Model applied by Steenkamp et al. (2024).",
+            "Instrument: 40 construct items measured on a seven-point Likert agreement scale.",
+            "Method: a pilot study followed by a cross-sectional online survey and PLS-SEM analysis.",
         ],
     )
 
@@ -668,12 +753,12 @@ def build_master() -> None:
     doc.add_heading("1.7 Significance of the Study", level=2)
     add_body(
         doc,
-        "The study contributes by testing a complete published digital-badge acceptance model in a new "
-        "national and disciplinary population. Practically, it can help Thai universities understand "
-        "whether usefulness, ease of use, social influence, job relevance, institutional support, and "
-        "computer-related beliefs are associated with intended badge use. The study does not claim that "
-        "badges improve employability; it examines students' intention to use them as a way of showcasing "
-        "skills.",
+        "The study extends the application of TAM3-related constructs to digital credentials in a Thai "
+        "higher-education setting. It also provides practical evidence about the factors associated with "
+        "students' willingness to use badges issued for IT micro-credentials. The findings may assist "
+        "universities in planning badge communication, student support, training, and integration with "
+        "career-development activities. The outcome measured is behavioural intention rather than actual "
+        "employment or employer evaluation.",
     )
 
     doc.add_heading("1.8 Definition of Key Terms", level=2)
@@ -681,111 +766,193 @@ def build_master() -> None:
     definition_rows += [
         ["Micro-credential", "A record of learning outcomes acquired through a small volume of learning (Council of the European Union, 2022; UNESCO, 2022)."],
         ["University-issued digital badge", "A verifiable visual token issued by a university to represent an achievement; in this study, completion of an IT micro-credential."],
-        ["Employability skills", "Skills and competencies that a student may communicate in job applications; no actual employment outcome is measured."],
-        ["Contextual replication", "Use of the same published model, paths, constructs, and source instrument in a different population and setting, with all context changes disclosed."],
+        ["Perceived usefulness", OPERATIONAL_DEFINITIONS["PU"] + " (Davis, 1989)."],
+        ["Perceived ease of use", OPERATIONAL_DEFINITIONS["PEOU"] + " (Davis, 1989)."],
+        ["Behavioural intention", OPERATIONAL_DEFINITIONS["BI"] + " (Venkatesh & Davis, 2000)."],
     ]
     add_table(doc, definition_rows, [1.65, 4.55], caption="Table 1.1: Working definitions", font_size=9.4)
 
     doc.add_page_break()
     doc.add_heading("CHAPTER 2: LITERATURE REVIEW", level=1)
-    doc.add_heading("2.1 Digital Badges and IT Micro-Credentials", level=2)
+    doc.add_heading("2.1 Applied Theory: Technology Acceptance Model and TAM3", level=2)
     add_body(
         doc,
-        "Steenkamp et al. (2024) distinguish a micro-credential, which records learning outcomes from a "
-        "small volume of learning, from a digital badge, which is a visual token acknowledging learning or "
-        "achievement. A badge may be applied to a micro-credential and can contain verifiable metadata. "
-        "Kiiskila et al. (2023) likewise examine verifiable digital credentials from a student perspective, "
-        "while Miao et al. (2024) demonstrate that student intention can be investigated directly in a "
-        "micro-credential-program context. These studies support the context; Steenkamp et al. alone supply "
-        "the model and questionnaire used in this thesis.",
+        "The Technology Acceptance Model proposes that perceived usefulness and perceived ease of use are "
+        "central beliefs underlying a person's intention to use a technology (Davis, 1989). Perceived ease of "
+        "use may also influence perceived usefulness because a technology that requires less effort can be "
+        "more useful in practice (Venkatesh & Davis, 2000). Behavioural intention is consequently treated as "
+        "the immediate outcome of the acceptance process.",
+    )
+    add_body(
+        doc,
+        "TAM3 extends the original model by explaining how social influence, task characteristics, control "
+        "beliefs, intrinsic motivation, and anxiety contribute to usefulness and ease-of-use perceptions "
+        "(Venkatesh, 2000; Venkatesh & Bala, 2008). Steenkamp et al. (2024) applied this extended structure to "
+        "students' use of university-issued digital badges in job applications. Their model provides the "
+        "theoretical framework for the present study because it addresses the same technology, decision, and "
+        "intended-use outcome.",
     )
 
-    doc.add_heading("2.2 Technology Acceptance Model and TAM3", level=2)
+    doc.add_heading("2.2 Digital Badges and IT Micro-Credentials", level=2)
     add_body(
         doc,
-        "The Technology Acceptance Model identifies perceived usefulness and perceived ease of use as "
-        "central beliefs associated with technology acceptance (Davis, 1989). TAM3 extends this logic by "
-        "specifying determinants of those beliefs, including social-influence processes, cognitive "
-        "instrumental processes, control beliefs, computer anxiety, and computer playfulness (Venkatesh, "
-        "2000; Venkatesh & Bala, 2008). Steenkamp et al. (2024) apply an extended, context-specific version "
-        "of TAM3 to university-issued digital badges for job applications. The current study retains that "
-        "application rather than using TAM as a general label for a newly assembled model.",
+        "Micro-credentials are short, assessed learning experiences that document specific learning outcomes "
+        "(Council of the European Union, 2022; UNESCO, 2022). Digital badges can represent such achievements "
+        "in a portable and verifiable format. Student perceptions of verifiable digital credentials include "
+        "their usefulness for displaying competence, their credibility, and the ease with which they can be "
+        "shared (Kiiskila et al., 2023). Research on micro-credential programmes also indicates that technology "
+        "acceptance provides a suitable basis for studying student intention (Miao et al., 2024). In this study, "
+        "the focal technology is a university-issued badge representing completion of an IT micro-credential."
     )
 
-    doc.add_heading("2.3 Variables in the Borrowed Model", level=2)
-    construct_rows = [["Published construct", "Code", "Direct source location", "Published items"]]
-    construct_rows += [[name, code, source_location, items] for name, code, source_location, items, _ in CONSTRUCTS]
-    add_table(doc, construct_rows, [1.55, 0.55, 3.35, 0.75], caption="Table 2.1: Exact constructs retained from the source model", font_size=8.4)
+    doc.add_heading("2.3 Variable Definitions", level=2)
+    for index, (name, code, _, _, _) in enumerate(CONSTRUCTS, start=1):
+        display_name = "Behavioural Intention" if code == "BI" else name
+        doc.add_heading(f"2.3.{index} {display_name}", level=3)
+        add_body(
+            doc,
+            f"{display_name} is defined in this study as {OPERATIONAL_DEFINITIONS[code][0].lower() + OPERATIONAL_DEFINITIONS[code][1:]} "
+            f"This definition follows {narrative_source_list(CONSTRUCT_THEORY_SOURCES[code])}.",
+        )
 
-    doc.add_heading("2.4 Relationships in the Borrowed Model", level=2)
+    doc.add_heading("2.4 Relationships Between Variables", level=2)
+    doc.add_heading("2.4.1 Determinants of Behavioural Intention", level=3)
     add_body(
         doc,
-        "Perceived usefulness and perceived ease of use are modelled as direct determinants of behavioural "
-        "intention, and ease of use is also modelled as a determinant of usefulness. Subjective norm is "
-        "linked to intention, usefulness, and image. Image, job application relevance, and result "
-        "demonstrability are linked to usefulness. Computer self-efficacy, perceptions of external control, "
-        "computer anxiety, and computer playfulness are linked to ease of use. These are not relationships "
-        "created for the Thai study; they are the complete 13-path structure in Steenkamp et al. (2024, "
-        "Figure 1 and H1-H13).",
+        "TAM proposes that perceived usefulness and perceived ease of use influence behavioural intention "
+        "(Davis, 1989). Subjective norm can also influence intention when important social actors encourage "
+        "technology use (Venkatesh & Davis, 2000). In the digital-badge study by Steenkamp et al. (2024), "
+        "perceived usefulness and subjective norm had significant positive effects on behavioural intention, "
+        "whereas the direct effect of perceived ease of use was not significant. All three theoretically "
+        "specified paths are examined in the Thai context.",
+    )
+
+    doc.add_heading("2.4.2 Determinants of Perceived Usefulness", level=3)
+    add_body(
+        doc,
+        "Perceived ease of use can increase perceived usefulness when lower effort improves the practical "
+        "value of a system (Venkatesh & Davis, 2000). TAM3 further proposes that subjective norm and image "
+        "represent social-influence processes, while job relevance and result demonstrability represent "
+        "cognitive instrumental processes (Venkatesh & Bala, 2008). Steenkamp et al. (2024) found significant "
+        "positive effects for perceived ease of use and job application relevance on perceived usefulness, "
+        "and a significant effect of subjective norm on image. The remaining proposed relationships were not "
+        "significant in their sample and are retested among Thai IT students.",
+    )
+
+    doc.add_heading("2.4.3 Determinants of Perceived Ease of Use", level=3)
+    add_body(
+        doc,
+        "Early perceptions of ease of use may be anchored in computer self-efficacy, perceptions of external "
+        "control, computer anxiety, and computer playfulness (Venkatesh, 2000; Venkatesh & Bala, 2008). "
+        "Self-efficacy, external control, and playfulness are expected to increase perceived ease of use, "
+        "whereas anxiety is expected to reduce it. Steenkamp et al. (2024) found a significant positive effect "
+        "only for perceptions of external control. Testing all four relationships permits assessment of whether "
+        "the pattern differs among Thai IT students.",
     )
 
     doc.add_heading("2.5 Previous Studies", level=2)
     prior_rows = [
-        ["Study", "Context and method", "Use in this thesis"],
-        ["Steenkamp et al. (2024)", "New Zealand accounting students; online survey; extended TAM3; PLS-SEM.", "Direct source of Figure 1, H1-H13, 11 constructs, 40 coded items, and analysis pattern."],
-        ["Miao et al. (2024)", "University students; technology use for micro-credential programs; TAM and self-determination model.", "Same-field evidence that intention can be studied in a micro-credential-program context; not the item source."],
-        ["Kiiskila et al. (2023)", "Higher-education students; qualitative study of verifiable digital credentials and micro-credentials.", "Supports student-value and digital-credential context; not the current quantitative framework."],
-        ["Davis (1989); Venkatesh & Bala (2008)", "Foundational TAM and TAM3 theory and measures.", "Theoretical foundation and prior measurement sources identified by Steenkamp et al."],
+        ["Study", "Context and method", "Main finding", "Relevance"],
+        ["Davis (1989)", "Technology acceptance; scale development and validation.", "Perceived usefulness and perceived ease of use are central determinants of user acceptance.", "Establishes the core TAM constructs."],
+        ["Venkatesh and Bala (2008)", "Longitudinal research integrating determinants of usefulness and ease of use.", "TAM3 explains acceptance through social influence, cognitive processes, control, motivation, and emotion.", "Provides the extended theoretical structure and many measurement scales."],
+        ["Kiiskila et al. (2023)", "Higher-education students; qualitative study of verifiable digital credentials.", "Students identified value in verifiable and shareable credentials while also raising implementation concerns.", "Supports the digital-credential and student context."],
+        ["Miao et al. (2024)", "University students; quantitative PLS-SEM study of technology use for micro-credential programmes.", "A TAM-based model was used to explain intention in a micro-credential setting.", "Supports the use of technology-acceptance theory for micro-credentials."],
+        ["Steenkamp et al. (2024)", "New Zealand accounting students; online survey; extended TAM3; PLS-SEM; n = 57.", "Six of 13 hypothesised relationships were supported, including usefulness and subjective norm as predictors of intention.", "Provides the conceptual framework, hypotheses, and questionnaire used in this study."],
     ]
-    add_table(doc, prior_rows, [1.5, 2.35, 2.35], caption="Table 2.2: Most relevant previous studies", font_size=8.8)
+    add_table(doc, prior_rows, [1.2, 1.75, 1.75, 1.5], caption="Table 2.1: Summary of previous studies", font_size=7.8)
 
     doc.add_page_break()
     doc.add_heading("CHAPTER 3: RESEARCH FRAMEWORK", level=1)
-    doc.add_heading("3.1 Borrowed Theoretical and Research Framework", level=2)
+    doc.add_heading("3.1 Theoretical Framework", level=2)
     add_body(
         doc,
-        "The framework is borrowed directly from Steenkamp et al. (2024). The source article identifies "
-        "TAM3 as its theoretical basis and publishes the research model as Figure 1. The image below is a "
-        "direct crop from the source PDF. No node or arrow has been generated, renamed, added, removed, or "
-        "redirected.",
+        "This study is grounded in TAM and TAM3. The core TAM relationships connect perceived usefulness and "
+        "perceived ease of use with behavioural intention (Davis, 1989). TAM3 explains these beliefs through "
+        "social influence, cognitive instrumental processes, control beliefs, intrinsic motivation, and "
+        "computer anxiety (Venkatesh, 2000; Venkatesh & Bala, 2008). The combined framework is appropriate "
+        "because the decision under investigation is whether students intend to use a digital technology for "
+        "a specific task: presenting university-issued badges in job applications.",
+    )
+    add_body(
+        doc,
+        "Within this framework, perceived usefulness and perceived ease of use are the principal acceptance "
+        "beliefs. Subjective norm and image represent social-influence processes, while job application "
+        "relevance and result demonstrability represent cognitive judgements about the value of the badge for "
+        "the task. Computer self-efficacy, external control, anxiety, and playfulness explain students' initial "
+        "ease-of-use perceptions (Venkatesh, 2000; Venkatesh & Bala, 2008).",
+    )
+    add_body(
+        doc,
+        "Behavioural intention is used as the dependent variable because the proposed badge is not assumed to "
+        "be available to every respondent at the time of data collection. The framework therefore explains "
+        "students' stated intention to use a badge, rather than actual badge use or employment outcomes."
+    )
+
+    doc.add_heading("3.2 Conceptual Framework", level=2)
+    add_body(
+        doc,
+        "The conceptual framework is adopted from the digital-badge acceptance model developed and tested by "
+        "Steenkamp et al. (2024). It includes the same 11 constructs and 13 directional relationships. The "
+        "population examined in the present study is Thai students enrolled in IT-related university "
+        "programmes, and the badge represents completion of an IT micro-credential.",
     )
     add_figure(
         doc,
         MODEL_CROP,
-        "Figure 3.1: Research model reproduced directly from Steenkamp, Fisher, and Nesbit (2024, Figure 1, article p. 10).",
+        "Figure 3.1: Conceptual framework for students' intention to use digital badges",
         width=5.75,
+        alt_text=(
+            "Conceptual framework adopted from Steenkamp et al. (2024), showing 11 constructs and "
+            "13 directional relationships predicting perceived usefulness, perceived ease of use, "
+            "image, and behavioural intention to use digital badges."
+        ),
     )
     add_source_note(
         doc,
-        "Source article license: CC BY-NC-ND 4.0. The figure content is unaltered; only surrounding page material is omitted in the direct crop.",
+        "Source: Steenkamp, Fisher, and Nesbit (2024, Figure 1, p. 10).",
     )
-
-    doc.add_heading("3.2 Application to the Thai IT-Student Context", level=2)
     add_body(
         doc,
-        "The model itself is unchanged. The contextual replication changes the population from accounting "
-        "students at a New Zealand university to students in IT-related programs in Thailand. The survey "
-        "introduction defines the university-issued digital badge as the verifiable representation awarded "
-        "for completing an IT micro-credential. The 40 construct statements continue to use the source "
-        "referent, 'university-issued digital badges.'",
+        "Perceived usefulness, perceived ease of use, and subjective norm are positioned as predictors of "
+        "behavioural intention. Perceived ease of use, subjective norm, image, job application relevance, and "
+        "result demonstrability are positioned as predictors of perceived usefulness. Computer self-efficacy, "
+        "perceptions of external control, computer anxiety, and computer playfulness are positioned as "
+        "predictors of perceived ease of use. Subjective norm is also linked to image. In Figure 3.1, DB "
+        "denotes digital badges.",
     )
 
     doc.add_heading("3.3 Research Hypotheses", level=2)
     add_body(
         doc,
-        "The following hypotheses are reproduced from Steenkamp et al. (2024, pp. 11-13). The source's "
-        "construct wording and direction are retained. H11 therefore also retains the source's grammatical "
-        "form.",
+        "Based on the theoretical relationships described above and the digital-badge model of Steenkamp et "
+        "al. (2024, pp. 11-13), the following hypotheses are proposed:",
     )
-    add_hypotheses(doc)
+    add_hypotheses(doc, THESIS_HYPOTHESES)
 
-    doc.add_heading("3.4 Operationalization", level=2)
-    op_rows = [["Construct", "Code", "Source item codes", "Count", "Scale"]]
-    op_rows += [[name, code, codes, count, "7-point Likert"] for name, code, _, codes, count in CONSTRUCTS]
-    add_table(doc, op_rows, [1.8, 0.6, 1.55, 0.55, 1.7], caption="Table 3.1: Operationalization of the exact source constructs", font_size=8.8)
+    heading = doc.add_heading("3.4 Operationalization", level=2)
+    heading.paragraph_format.page_break_before = True
+    op_rows = [["Variable", "Operational definition", "Items", "Scale", "Source/reference"]]
+    for name, code, _, codes, _ in CONSTRUCTS:
+        display_name = "Behavioural Intention" if code == "BI" else name
+        op_rows.append(
+            [
+                display_name,
+                OPERATIONAL_DEFINITIONS[code],
+                codes,
+                "7-point Likert",
+                CONSTRUCT_THEORY_SOURCES[code],
+            ]
+        )
+    add_table(
+        doc,
+        op_rows,
+        [1.15, 2.35, 0.75, 0.75, 1.2],
+        caption="Table 3.1: Operationalization of the study variables",
+        font_size=7.4,
+    )
     add_source_note(
         doc,
-        "All item wordings appear in Appendix A. Direct source: Steenkamp et al. (2024), Appendix, article pp. 28-29.",
+        "The complete questionnaire statements and their measurement sources are presented in Section 4.3.",
     )
 
     doc.add_page_break()
@@ -793,142 +960,121 @@ def build_master() -> None:
     doc.add_heading("4.1 Research Design", level=2)
     add_body(
         doc,
-        "The study uses a quantitative, cross-sectional online questionnaire and a contextual-replication "
-        "design. It tests the complete published model rather than comparing experimental scenarios. No "
-        "interviews or open-ended research questions are included. All model indicators are treated as "
-        "reflective, matching the source study.",
+        "The study will use a quantitative, explanatory, cross-sectional survey design. This design is "
+        "appropriate for measuring students' perceptions and testing the hypothesised relationships among "
+        "the 11 latent variables at one point in time. The construct indicators will be specified as "
+        "reflective, consistent with Steenkamp et al. (2024), and the model will be estimated using PLS-SEM.",
     )
 
-    doc.add_heading("4.2 Population and Sampling", level=2)
+    doc.add_heading("4.2 Sampling Procedure", level=2)
+    doc.add_heading("4.2.1 Target Population", level=3)
     add_body(
         doc,
-        "Eligible participants will be aged 18 or above and currently enrolled in an IT-related university "
-        "program in Thailand. Participants in the pilot will not enter the main-study dataset. The proposed "
-        "minimum is 384 usable main-study responses, with a recruitment target of 400. Recruitment channels "
-        "and participating institutions remain subject to professor and university approval. The final "
-        "report will state the sampling method and response flow without implying probability sampling if "
-        "non-probability recruitment is used.",
+        "The target population consists of students aged 18 years or older who are currently enrolled in an "
+        "IT-related undergraduate or postgraduate programme at a university in Thailand. Relevant fields may "
+        "include information technology, computer science, software engineering, information systems, data "
+        "science, cybersecurity, and closely related programmes.",
     )
-
-    doc.add_heading("4.3 Required Pilot", level=2)
+    doc.add_heading("4.2.2 Sampling Method and Sample Size", level=3)
     add_body(
         doc,
-        "A pilot with 40 eligible Thai IT students will occur before the main survey. It will check "
-        "eligibility logic, comprehension, completion time, missing responses, scale use, and preliminary "
-        "measurement performance. Pilot participants will be excluded from the main sample. The English "
-        "source master and item-level provenance will remain unchanged; any Thai-language or item decision "
-        "after the pilot will be documented and approved rather than silently incorporated.",
+        "Non-probability convenience and snowball sampling will be used because a complete national sampling "
+        "frame of Thai IT students is not available. The online questionnaire will be distributed through "
+        "IT-related university programmes, student groups, and academic networks. The Krejcie and Morgan "
+        "(1970) table identifies 384 as a conventional sample-size benchmark for a large population under "
+        "probability-sampling assumptions. Because the present study uses non-probability sampling, this "
+        "benchmark does not imply a 5% margin of error for the achieved sample. It is used as a conservative "
+        "target that also exceeds the minimum normally required for a PLS-SEM model of this complexity (Hair "
+        "et al., 2022). The main study will therefore require at least 384 usable responses, with a recruitment "
+        "target of 400 to allow for incomplete or ineligible responses.",
+    )
+    doc.add_heading("4.2.3 Inclusion and Exclusion Criteria", level=3)
+    add_body(
+        doc,
+        "Respondents will be included if they provide informed consent, are at least 18 years old, are "
+        "currently enrolled in an IT-related university programme in Thailand, and complete the construct "
+        "measures. Responses will be excluded for failed eligibility screening, duplicate submission, "
+        "substantial missing data, or implausibly short completion time. Pilot participants will not be "
+        "included in the main-study dataset.",
     )
 
-    doc.add_heading("4.4 Questionnaire Design", level=2)
+    doc.add_heading("4.3 Research Instrument and Questionnaire Design", level=2)
+    add_body(
+        doc,
+        "Data will be collected using a structured online questionnaire. The conceptual measures and 40 "
+        "construct items are adopted from Steenkamp et al. (2024, Appendix, pp. 28-29), who drew the measures "
+        "from established TAM, TAM3, UTAUT, and computer self-efficacy scales. The focal referent throughout "
+        "the construct section is a university-issued digital badge representing completion of an IT "
+        "micro-credential and used in a job application.",
+    )
+    add_body(
+        doc,
+        "BI3 contains a grammatical correction from 'use the when' in the published Appendix to 'use them "
+        "when'; the construct meaning, referent, and 12-month timeframe are unchanged.",
+    )
+    instrument_rows = [
+        ["Section", "Content", "Purpose"],
+        ["A", "Participant information, consent, age, enrolment status, and field of study", "Confirm consent and eligibility"],
+        ["B", "Neutral definition of an IT micro-credential and a university-issued digital badge", "Provide a common referent"],
+        ["C", "Age group, gender, study level, field, year of study, institution type, and prior badge awareness or use", "Describe the sample"],
+        ["D", "Forty statements measuring the 11 model constructs", "Test the measurement and structural models"],
+    ]
+    add_table(doc, instrument_rows, [0.65, 3.65, 1.9], caption="Table 4.1: Structure of the questionnaire", font_size=8.6)
+    add_body(
+        doc,
+        "Construct items will use a seven-point Likert agreement scale ranging from 1 (strongly disagree) to "
+        "7 (strongly agree). The full English questionnaire statements and their published measurement sources "
+        "are presented below.",
+    )
+    add_questionnaire(doc)
+
+    doc.add_heading("4.4 Translation and Pilot Study", level=2)
+    add_body(
+        doc,
+        "The questionnaire will be translated from English into Thai and independently back-translated into "
+        "English. Differences will be reconciled to preserve the intended meaning of each construct (Brislin, "
+        "1970). Before the main survey, the Thai questionnaire will be pilot tested with 40 eligible Thai IT "
+        "students. A sample of this size is appropriate for an initial assessment of item comprehension and "
+        "scale performance (Hertzog, 2008; Johanson & Brooks, 2010). The pilot will assess eligibility logic, "
+        "clarity of instructions and items, completion time, missing responses, and preliminary internal "
+        "consistency. Pilot participants will be excluded from the main survey.",
+    )
+
+    doc.add_heading("4.5 Data Collection", level=2)
+    add_body(
+        doc,
+        "Following academic and ethical approval, an online survey link will be distributed through the "
+        "identified university and student channels. The first page will provide the participant information "
+        "and consent statement. Participation will be voluntary, and respondents may leave the survey before "
+        "submission. No directly identifying information will be required. Responses will be stored securely "
+        "and used only for the purposes described in the participant information.",
+    )
+
+    doc.add_heading("4.6 Statistical Treatment of Data", level=2)
     add_numbered(
         doc,
         [
-            "Participant information, consent, and eligibility screening.",
-            "A neutral explanation of a university-issued digital badge representing an IT micro-credential, including that it can be verified and displayed in job applications.",
-            "Demographic and context questions, such as age band, field of study, study level, and prior awareness or use of digital badges.",
-            "The 40 coded construct items from Steenkamp et al. (2024), retaining the source's seven-point agreement scale.",
-        ],
-    )
-    add_note(
-        doc,
-        "Source anomaly: the Appendix contains an unnumbered employer sentence after SN4. Because the "
-        "article states that 40 items were analysed and Table 2 reports SN1-SN4 only, the present instrument "
-        "does not invent SN5. BI3's apparent typo is retained in the English source master; any correction "
-        "requires approval before fielding.",
-    )
-
-    doc.add_heading("4.5 Translation", level=2)
-    add_body(
-        doc,
-        "The English source instrument will be the audit master. After the supervisor approves the English "
-        "instrument, it will be translated into Thai and independently back-translated into English. "
-        "Differences will be reconciled against construct meaning and the exact source statement (Brislin, "
-        "1970). Both approved language versions will be retained in the thesis appendix.",
-    )
-
-    doc.add_heading("4.6 Data Collection and Ethics", level=2)
-    add_body(
-        doc,
-        "The questionnaire will be distributed only after the required academic and ethical permissions. "
-        "Participation will be voluntary. The information sheet will explain the study, inclusion criteria, "
-        "estimated completion time, withdrawal conditions, confidentiality, and data handling. No claim of "
-        "institutional approval is made in this draft.",
-    )
-
-    doc.add_heading("4.7 Statistical Treatment", level=2)
-    add_numbered(
-        doc,
-        [
-            "Screen records for consent, eligibility, duplicates, missingness, completion quality, and coding errors.",
-            "Describe the sample and item distributions using frequencies, means, and standard deviations.",
-            "Assess reflective measurement quality using outer loadings, Cronbach's alpha, composite reliability, average variance extracted, and discriminant validity.",
-            "Assess structural-model collinearity using variance inflation factors.",
-            "Estimate the 13 published paths and R-squared values using PLS-SEM with 5,000 bootstrap samples, matching the source study's general procedure.",
-            "Report all retained and removed items from the Thai data. Do not automatically copy the source sample's deletion of PEC4, CPLAY4, and RES4.",
+            "Screen records for consent, eligibility, duplicates, missingness, completion quality, and coding errors; reverse-code negatively phrased indicators before construct analysis.",
+            "Describe respondent characteristics using frequencies and percentages, and summarize construct responses using means and standard deviations.",
+            "Assess the reflective measurement model using indicator loadings, Cronbach's alpha, composite reliability, average variance extracted, and discriminant validity. All 40 indicators will be administered; any indicator removal will be based on the Thai-sample results and theoretical content and will be reported.",
+            "Assess structural-model collinearity using variance inflation factors and evaluate the explanatory power of endogenous constructs using R-squared values.",
+            "Estimate the 13 hypothesised paths in SmartPLS using 5,000 bootstrap samples and report path coefficients, confidence intervals, p-values, and effect sizes (Hair et al., 2022).",
+            "Determine support for each hypothesis at the 5% significance level and compare the resulting pattern with the findings of Steenkamp et al. (2024).",
         ],
     )
 
-    doc.add_heading("4.8 Claim Boundaries", level=2)
+    doc.add_heading("4.7 Ethical Considerations", level=2)
     add_body(
         doc,
-        "The primary findings will concern measured perceptions and behavioural intention. The analysis may "
-        "support or fail to support replicated paths, but it will not prove causal effects, actual badge use, "
-        "employer recognition, improved employability, or employment outcomes.",
+        "The study will follow the university's research-ethics requirements. Participants will receive "
+        "information about the study purpose, eligibility requirements, voluntary participation, "
+        "confidentiality, data use, and withdrawal before submission. Only respondents who provide informed "
+        "consent will proceed. Results will be reported in aggregate form.",
     )
-
-    heading = doc.add_heading("CHAPTER 5: RESEARCH RESULTS", level=1)
-    heading.paragraph_format.page_break_before = True
-    add_note(doc, "No results are available. Complete this chapter only after the required pilot and main-study analysis.")
-    for heading in [
-        "5.1 Response Flow and Data Screening",
-        "5.2 Participant Characteristics",
-        "5.3 Descriptive Statistics",
-        "5.4 Measurement Model",
-        "5.5 Structural Model and Hypothesis Tests",
-        "5.6 Summary of Results",
-    ]:
-        doc.add_heading(heading, level=2)
-        add_body(doc, "Insert verified results, tables, and interpretation here after analysis.")
-
-    doc.add_page_break()
-    doc.add_heading("CHAPTER 6: DISCUSSION AND CONCLUSION", level=1)
-    add_note(doc, "No discussion or conclusion is claimed before real results exist.")
-    for heading in [
-        "6.1 Discussion by Replicated Hypothesis",
-        "6.2 Comparison with Steenkamp et al. (2024)",
-        "6.3 Theoretical Implications",
-        "6.4 Practical Implications",
-        "6.5 Limitations",
-        "6.6 Future Research",
-        "6.7 Conclusion",
-    ]:
-        doc.add_heading(heading, level=2)
-        add_body(doc, "Complete this section after the empirical findings are available.")
 
     doc.add_page_break()
     doc.add_heading("References", level=1)
     add_references(doc)
-
-    doc.add_page_break()
-    doc.add_heading("Appendix A: English Source Questionnaire for Pilot Review", level=1)
-    add_body(
-        doc,
-        "Instruction: Please indicate how strongly you agree or disagree with each statement. The "
-        "construct-item wording and response scale are reproduced from Steenkamp et al. (2024).",
-        no_indent=True,
-    )
-    add_questionnaire(doc)
-
-    doc.add_heading("Appendix B: Source Measurement Decisions", level=1)
-    decision_rows = [
-        ["Issue", "Published source", "Current treatment"],
-        ["Item count", "40 coded construct items", "All 40 coded items administered in the pilot."],
-        ["Unnumbered employer sentence", "Printed after SN4 but not coded; absent from the 40-item measurement table.", "Not assigned a code and not scored."],
-        ["PEC4, CPLAY4, RES4", "Administered, then removed for source-sample loadings below .40.", "Administered; any Thai-sample removal will be reported from Thai data."],
-        ["BI3", "Source prints 'use the when'.", "Retained verbatim in the English source master; any correction requires approval before fielding."],
-    ]
-    add_table(doc, decision_rows, [1.25, 2.45, 2.5], caption="Table B.1: Transparent handling of source-instrument details", font_size=8.8)
 
     doc.save(MASTER_OUT)
 
@@ -1062,11 +1208,20 @@ def build_evidence_pack() -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build the current thesis documents.")
+    parser.add_argument(
+        "--master-only",
+        action="store_true",
+        help="Build only the supervisor-facing thesis manuscript.",
+    )
+    args = parser.parse_args()
+
     prepare_source_excerpts()
     build_master()
-    build_evidence_pack()
     print(MASTER_OUT)
-    print(EVIDENCE_OUT)
+    if not args.master_only:
+        build_evidence_pack()
+        print(EVIDENCE_OUT)
     print(MODEL_CROP)
     print(APPENDIX_28_CROP)
     print(APPENDIX_29_CROP)

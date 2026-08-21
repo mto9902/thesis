@@ -19,7 +19,7 @@ from docx import Document
 ROOT = Path(__file__).resolve().parents[1]
 BUILD_SCRIPT = ROOT / "tools" / "build_direct_replication.py"
 SOURCE_PDF = ROOT / "source" / "Steenkamp_2024_Digital_Badges.pdf"
-MASTER_DOCX = ROOT / "outputs" / "Master_Thesis_Direct_Replication_Digital_Badges_Thai_IT_Students.docx"
+MASTER_DOCX = ROOT / "outputs" / "Master_Thesis_Digital_Badges_Thai_IT_Students.docx"
 EVIDENCE_DOCX = ROOT / "outputs" / "Evidence_Pack_Direct_Framework_Hypotheses_Questionnaire.docx"
 
 SOURCE_IMAGES = (
@@ -116,24 +116,45 @@ def main() -> int:
 
     for code, statement in hypotheses:
         require_contains(source_text, f"{code} {statement}", f"Source hypothesis {code}", errors)
-        require_contains(master_text, f"{code} {statement}", f"Master hypothesis {code}", errors)
+        master_statement = statement.replace(
+            "Perceptions of external control has", "Perceptions of external control have"
+        )
+        require_contains(master_text, f"{code} {master_statement}", f"Master hypothesis {code}", errors)
         require_contains(evidence_text, f"{code} {statement}", f"Evidence hypothesis {code}", errors)
 
     for name, code, _source_location, _item_codes, _count in constructs:
         source_name = "Behavioral Intention" if code == "BI" else name
+        master_name = "Behavioural Intention" if code == "BI" else name
         require_contains(source_text, source_name, f"Source construct {code}", errors)
-        require_contains(master_text, name, f"Master construct {code}", errors)
+        require_contains(master_text, master_name, f"Master construct {code}", errors)
         require_contains(evidence_text, name, f"Evidence construct {code}", errors)
 
     for code, _construct, source_wording, _prior_source in items:
         require_contains(source_item_text, f"{code} {source_wording}", f"Source item {code}", errors)
         require_contains(evidence_text, source_wording, f"Evidence item {code}", errors)
-        require_contains(master_text, source_wording, f"Master item {code}", errors)
+        master_wording = source_wording
+        if code == "BI3":
+            master_wording = source_wording.replace("use the when", "use them when")
+        require_contains(master_text, master_wording, f"Master item {code}", errors)
 
     for label, text in (("master", master_text), ("evidence", evidence_text)):
         for forbidden in ("preparedfordr", "preparedforprofessor", "professorkimi", "drqizhengu"):
             if forbidden in text:
                 errors.append(f"Forbidden addressee wording in {label}: {forbidden}")
+
+    for forbidden in (
+        "directmodelreplication",
+        "contextualreplication",
+        "sourceaudit",
+        "auditmaster",
+        "sourceanomaly",
+        "draftstatus",
+        "noresultsareavailable",
+        "inserthere",
+        "correctionrequiresapproval",
+    ):
+        if forbidden in master_text:
+            errors.append(f"Meta/process wording remains in master thesis: {forbidden}")
 
     source_hash = hashlib.sha256(SOURCE_PDF.read_bytes()).hexdigest()
 
@@ -166,7 +187,8 @@ def main() -> int:
     print("- 13/13 hypotheses found in the source PDF, master thesis, and evidence pack")
     print("- 11/11 constructs retained")
     print("- 40/40 coded source items found in the source PDF and evidence pack")
-    print("- 40/40 exact source items found in the master thesis (including the disclosed BI3 source typo)")
+    print("- 40/40 source items found in the master thesis; BI3 contains only the field-ready typo correction")
+    print("- Supervisor-facing manuscript contains none of the prohibited audit/drafting phrases")
     print(f"- Source PDF SHA-256: {source_hash}")
     return 0
 

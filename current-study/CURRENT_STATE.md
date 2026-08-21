@@ -1,6 +1,6 @@
 # Current State in Plain Language
 
-Updated: 15 August 2026
+Updated: 22 August 2026
 
 ## The short version
 
@@ -13,7 +13,7 @@ Steenkamp, Fisher, and Nesbit (2024) publish all four requested components in th
 3. the 11 variables shown in that model; and
 4. the complete 40-item coded construct questionnaire in the Appendix.
 
-This allows the thesis to become a direct-model replication instead of a framework assembled from several partly matching studies.
+This allows the thesis to use one coherent published framework instead of assembling relationships and questionnaire items from partly matching studies.
 
 ## What the study now asks
 
@@ -59,7 +59,7 @@ The source Appendix contains three details that require transparent handling:
 
 1. It shows 40 coded construct items, plus one unnumbered employer sentence after SN4. The article states that 40 items were analysed and Table 2 reports SN1-SN4 only, so the unnumbered sentence is not assigned a new code or used as a scale item.
 2. The source authors administered PEC4, CPLAY4, and RES4 but removed them during measurement-model assessment because their loadings were below .40. The Thai replication will administer all 40 original coded items and report any item removal from the Thai data rather than importing the original sample's deletion automatically.
-3. BI3 contains an apparent source typo, "use the when." The English source master and evidence pack both preserve it verbatim. A possible grammatical correction to "use them when" is identified for supervisor approval before the pilot; it has not been silently applied.
+3. BI3 contains an apparent source typo, "use the when." The evidence pack preserves the published wording verbatim. The supervisor-facing questionnaire corrects this obvious typographical error to "use them when" without changing the construct meaning.
 
 ## Method status
 
@@ -73,11 +73,10 @@ The source Appendix contains three details that require transparent handling:
 
 ## What remains before data collection
 
-1. Supervisor confirmation that the direct-model replication is acceptable.
-2. His decision on the disclosed BI3 typographical correction.
-3. Thai forward translation and independent back-translation after English-item approval.
-4. Any required ethics or administrative approval.
-5. The required pilot, followed by documented decisions.
-6. Main data collection and analysis.
+1. Supervisor confirmation of the framework, questionnaire, and methodology.
+2. Thai forward translation and independent back-translation after English-item approval.
+3. Any required ethics or administrative approval.
+4. The required pilot, followed by documented decisions.
+5. Main data collection and analysis.
 
 The current package is now source-complete for framework, hypotheses, variables, and questionnaire evidence. It is still a proposal-stage draft, not an approved or completed thesis.

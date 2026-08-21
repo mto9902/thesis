@@ -1,6 +1,6 @@
 # Direct-Source Fidelity Audit
 
-Updated: 15 August 2026
+Updated: 22 August 2026
 
 ## Decision rule
 
@@ -55,7 +55,7 @@ The source administered 40 coded items and then removed PEC4, CPLAY4, and RES4 b
 
 ### BI3 typographical issue
 
-The source Appendix prints "I would plan to use the when I apply for jobs..." The English source master and evidence pack reproduce that wording verbatim. A possible field correction changes only "the" to "them" and remains pending supervisor approval. No construct, referent, direction, or timeframe would change.
+The source Appendix prints "I would plan to use the when I apply for jobs..." The evidence pack reproduces that wording verbatim. The supervisor-facing questionnaire discloses the grammatical field correction from "the" to "them." No construct, referent, direction, or timeframe changes, and the field wording remains subject to confirmation before the pilot.
 
 ## Overall verdict
 
@@ -63,6 +63,6 @@ The current direct-model route passes the requested source-fidelity test for the
 
 ## Automated verification
 
-`tools/audit_direct_replication.py` independently checks the source PDF, direct image crops, and both Word documents. On 15 August 2026 it confirmed the pixel-exact source images, 13/13 hypotheses, 11/11 constructs, and 40/40 exact source items. The retained source PDF has SHA-256 `b4966d48b892f4fb041b1397937a25b1c3fec6c867d7a2b6ac758a4e67530752`.
+`tools/audit_direct_replication.py` independently checks the source PDF, direct image crops, and both Word documents. On 22 August 2026 it confirmed the pixel-exact source images, 13/13 hypotheses, 11/11 constructs, and 40/40 source items, with only the disclosed BI3 grammatical correction in the supervisor-facing questionnaire. The retained source PDF has SHA-256 `b4966d48b892f4fb041b1397937a25b1c3fec6c867d7a2b6ac758a4e67530752`.
 
 The earlier EVC route remains a transparent historical draft but fails this strict standard because it inferred quantitative hypotheses from a qualitative framework and changed every questionnaire referent.

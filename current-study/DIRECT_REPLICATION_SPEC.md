@@ -2,7 +2,7 @@
 
 ## Working title
 
-**Understanding Thai IT Students' Intentions to Use University-Issued Digital Badges to Showcase Employability Skills: A Direct-Model Replication of Steenkamp, Fisher, and Nesbit (2024)**
+**Factors Influencing Thai IT Students' Intentions to Use University-Issued Digital Badges for IT Micro-Credentials in Job Applications: A Quantitative Study Using an Extended Technology Acceptance Model**
 
 ## Source study
 
@@ -44,7 +44,7 @@ The wording above follows the source, including its H11 subject-verb agreement.
 
 - 40 coded construct items reproduced from the source Appendix.
 - Seven-point Likert scale reproduced from the source: strongly disagree to strongly agree.
-- The English source master retains BI3's apparent "use the when" typo verbatim; a correction is not applied without approval.
+- The evidence source master retains BI3's apparent "use the when" typo verbatim. The supervisor-facing questionnaire discloses the grammatical field correction to "use them when," which does not change the construct, referent, or timeframe.
 - No interviews or open-ended research questions.
 - Screening and demographic questions are new administrative items and are not represented as borrowed construct measures.
 - The survey introduction defines a university-issued digital badge and explains its use as the verifiable representation of an IT micro-credential.
@@ -64,5 +64,5 @@ The wording above follows the source, including its H11 subject-verb agreement.
 - paraphrasing construct items;
 - adding a mediator or experimental manipulation;
 - claiming actual employability or employer behaviour;
-- silently correcting BI3 or inventing a code for the unnumbered employer sentence;
+- changing BI3 beyond the disclosed grammatical correction or inventing a code for the unnumbered employer sentence;
 - describing the model as self-developed.
