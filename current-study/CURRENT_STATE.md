@@ -2,81 +2,60 @@
 
 Updated: 22 August 2026
 
-## The short version
+## The short answer
 
-The source problem has been solved with a new published study.
+The thesis now uses its **own focused framework**, built from published work in the same way as Professor Kimi's example thesis: first show the actual frameworks from previous studies, then show the framework constructed for this study.
 
-Steenkamp, Fisher, and Nesbit (2024) publish all four requested components in the same article:
+Steenkamp et al. (2024) is the closest source because it studied students' use of university-issued digital badges in job applications. We use five of its exact variables, four of its tested and supported relationships, and the 18 questionnaire items for those variables. We do not copy its full 11-variable model.
 
-1. the actual research-model diagram (Figure 1);
-2. all 13 hypotheses in explicit H1-H13 form;
-3. the 11 variables shown in that model; and
-4. the complete 40-item coded construct questionnaire in the Appendix.
+## What happened across the versions
 
-This allows the thesis to use one coherent published framework instead of assembling relationships and questionnaire items from partly matching studies.
+1. **Original idea:** recognition, stackability, and industry endorsement were proposed to affect trust and perceived value. The topic was useful, but no single published framework contained that exact model or its full questionnaire.
+2. **First source repair:** a smaller expectancy-value-cost model was considered. Its published-framework trail was stronger, but it moved away from the most relevant digital-badge questions.
+3. **Overcorrection:** the complete Steenkamp model was adopted with 11 variables, 13 hypotheses, and 40 items. This was directly sourced but unnecessarily large and looked more like a replication than an author-constructed thesis framework.
+4. **Current solution:** a five-variable, four-hypothesis model constructed by the author from three published frameworks. It keeps the strongest digital-badge source evidence without copying the entire Steenkamp model.
 
-## What the study now asks
+## What the study asks
 
-The study asks what influences Thai IT students' intention to use university-issued digital badges when applying for jobs. In the Thai study context, the badge represents an IT micro-credential and its verified skills.
+The study asks what makes Thai IT students intend to use a university-issued digital badge representing an IT micro-credential when applying for jobs. It tests whether:
 
-The model tests whether intention is related to:
+- an easier-to-use badge seems more useful;
+- a badge that is relevant to job applications seems more useful;
+- a more useful badge creates stronger intention to use it; and
+- encouragement from important people and the university creates stronger intention to use it.
 
-- perceived usefulness;
-- perceived ease of use;
-- subjective norm;
-- image;
-- job application relevance;
-- result demonstrability;
-- computer self-efficacy;
-- perceptions of external control;
-- computer anxiety; and
-- computer playfulness.
+## Current framework and questionnaire
 
-Perceived usefulness, perceived ease of use, and image are also endogenous variables in the same published model.
-
-## What is copied directly
-
-- Figure 1 is reproduced from the source article rather than redrawn.
-- The 13 paths and directional hypotheses are copied from the source article.
-- Construct names and item codes are retained.
-- The 40 English construct items are transcribed from the source Appendix.
-- The original seven-point Likert scale is retained.
-- The planned PLS-SEM analysis follows the source study's general measurement and structural-model procedure.
-
-## What changes
-
-Only the application context changes:
-
-- New Zealand accounting students become Thai students in IT-related university programs.
-- The survey introduction explains that the university-issued digital badge represents completion of an IT micro-credential.
-- The required pilot and Thai translation process are added for the local study.
-
-Those changes are labelled as contextual replication changes. They are not presented as parts of the original source study.
-
-## Source anomalies disclosed rather than hidden
-
-The source Appendix contains three details that require transparent handling:
-
-1. It shows 40 coded construct items, plus one unnumbered employer sentence after SN4. The article states that 40 items were analysed and Table 2 reports SN1-SN4 only, so the unnumbered sentence is not assigned a new code or used as a scale item.
-2. The source authors administered PEC4, CPLAY4, and RES4 but removed them during measurement-model assessment because their loadings were below .40. The Thai replication will administer all 40 original coded items and report any item removal from the Thai data rather than importing the original sample's deletion automatically.
-3. BI3 contains an apparent source typo, "use the when." The evidence pack preserves the published wording verbatim. The supervisor-facing questionnaire corrects this obvious typographical error to "use them when" without changing the construct meaning.
+- Five constructs: Perceived Ease of Use, Job Application Relevance, Perceived Usefulness, Subjective Norm, and Behavioural Intention to Use DB.
+- Four direct hypotheses, each corresponding to one arrow.
+- Eighteen seven-point Likert-scale statements copied from the matching construct sections of Steenkamp et al.'s published Appendix.
+- One obvious source typo in BI3 is corrected from "use the when" to "use them when" and disclosed in both documents.
+- No interviews and no experimental vignettes.
 
 ## Method status
 
-- Quantitative, cross-sectional questionnaire survey.
-- Population: Thai university students in IT-related fields.
+- Quantitative, explanatory, cross-sectional questionnaire survey.
+- Population: Thai university students aged 18 or older in IT-related programs.
 - Pilot: 40 eligible students, excluded from the main sample.
 - Main target: at least 384 usable responses, with a recruitment target of 400.
-- Instrument: 40 coded construct items on the source's seven-point agreement scale.
 - Analysis: reflective measurement-model assessment and PLS-SEM with 5,000 bootstrap samples.
-- No interviews, experimental vignettes, or employer-outcome claims.
 
-## What remains before data collection
+## What is ready
 
-1. Supervisor confirmation of the framework, questionnaire, and methodology.
+- Chapters 1-4 in one supervisor-facing thesis file.
+- Three actual published framework diagrams followed by the author's conceptual framework.
+- Four hypotheses and one matching objective and research question for each.
+- Definitions supported by multiple previous studies.
+- Relationship discussions supported by multiple previous studies.
+- Full questionnaire wording, construct codes, scale, and source citations.
+- A separate evidence pack containing direct source images and an item-by-item audit.
+
+## What remains
+
+1. Professor Kimi's confirmation of the revised framework and instrument.
 2. Thai forward translation and independent back-translation after English-item approval.
-3. Any required ethics or administrative approval.
-4. The required pilot, followed by documented decisions.
-5. Main data collection and analysis.
+3. Ethics or administrative approval if required.
+4. The required 40-person pilot and any documented corrections.
+5. Main data collection, analysis, results, discussion, and conclusion chapters.
 
-The current package is now source-complete for framework, hypotheses, variables, and questionnaire evidence. It is still a proposal-stage draft, not an approved or completed thesis.
+The package is source-complete for supervisor review, but it is not yet an approved or completed thesis.

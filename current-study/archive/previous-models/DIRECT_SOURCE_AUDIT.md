@@ -1,5 +1,7 @@
 # Direct-Source Fidelity Audit
 
+> **ARCHIVED MODEL:** This file records the earlier complete 11-construct Steenkamp replication. It is not the current thesis design. Use `SOURCE_AUDIT.md` and `FRAMEWORK_SPEC.md` for the current five-construct author framework.
+
 Updated: 22 August 2026
 
 ## Decision rule

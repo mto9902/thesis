@@ -1,5 +1,7 @@
 # Direct-Model Replication Specification
 
+> **ARCHIVED MODEL:** This file records the earlier complete 11-construct Steenkamp replication. It is not the current thesis design. Use `FRAMEWORK_SPEC.md` for the current five-construct author framework.
+
 ## Working title
 
 **Factors Influencing Thai IT Students' Intentions to Use University-Issued Digital Badges for IT Micro-Credentials in Job Applications: A Quantitative Study Using an Extended Technology Acceptance Model**

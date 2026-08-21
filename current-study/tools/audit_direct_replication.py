@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the direct-replication package against the published source PDF."""
+"""Verify the author-constructed framework package against its published sources."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BUILD_SCRIPT = ROOT / "tools" / "build_direct_replication.py"
 SOURCE_PDF = ROOT / "source" / "Steenkamp_2024_Digital_Badges.pdf"
 MASTER_DOCX = ROOT / "outputs" / "Master_Thesis_Digital_Badges_Thai_IT_Students.docx"
-EVIDENCE_DOCX = ROOT / "outputs" / "Evidence_Pack_Direct_Framework_Hypotheses_Questionnaire.docx"
+EVIDENCE_DOCX = ROOT / "outputs" / "Evidence_Pack_Author_Constructed_Framework_and_Questionnaire.docx"
 
 SOURCE_IMAGES = (
     (10, ROOT / "source" / "steenkamp_page_10_model.png", (105, 100, 1175, 1205), ROOT / "outputs" / "Published_Framework_Steenkamp_Figure_1_Direct_Crop.png"),
@@ -92,7 +92,7 @@ def require_contains(haystack: str, needle: str, label: str, errors: list[str]) 
         errors.append(label)
 
 
-def main() -> int:
+def main_full_replication_legacy() -> int:
     hypotheses = load_literal("HYPOTHESES")
     constructs = load_literal("CONSTRUCTS")
     items = load_literal("ITEMS")
@@ -190,6 +190,126 @@ def main() -> int:
     print("- 40/40 source items found in the master thesis; BI3 contains only the field-ready typo correction")
     print("- Supervisor-facing manuscript contains none of the prohibited audit/drafting phrases")
     print(f"- Source PDF SHA-256: {source_hash}")
+    return 0
+
+
+def main() -> int:
+    hypotheses = load_literal("HYPOTHESES")
+    source_hypotheses = load_literal("SELECTED_SOURCE_HYPOTHESES")
+    constructs = load_literal("CONSTRUCTS")
+    items = load_literal("ITEMS")
+    selected_codes = load_literal("SELECTED_CODES")
+
+    study_constructs = [construct for construct in constructs if construct[1] in selected_codes]
+    study_items = [item for item in items if item[0].rstrip("0123456789") in selected_codes]
+
+    errors: list[str] = []
+    if len(hypotheses) != 4:
+        errors.append(f"Expected 4 study hypotheses; found {len(hypotheses)}")
+    if len(source_hypotheses) != 4:
+        errors.append(f"Expected 4 direct source hypotheses; found {len(source_hypotheses)}")
+    if len(study_constructs) != 5:
+        errors.append(f"Expected 5 study constructs; found {len(study_constructs)}")
+    if len(study_items) != 18:
+        errors.append(f"Expected 18 study items; found {len(study_items)}")
+
+    codes = [item[0] for item in study_items]
+    if len(codes) != len(set(codes)):
+        errors.append("Study questionnaire item codes are not unique")
+
+    source_text = normalize(extract_pdf_text(SOURCE_PDF))
+    source_item_text = normalize(extract_appendix_item_column(SOURCE_PDF))
+    master_text = normalize(extract_docx_text(MASTER_DOCX))
+    evidence_text = normalize(extract_docx_text(EVIDENCE_DOCX))
+
+    for code, statement in source_hypotheses:
+        require_contains(source_text, f"{code} {statement}", f"Source hypothesis {code}", errors)
+
+    for code, statement in hypotheses:
+        require_contains(master_text, f"{code} {statement}", f"Master hypothesis {code}", errors)
+        require_contains(evidence_text, f"{code} {statement}", f"Evidence hypothesis {code}", errors)
+
+    for name, code, _source_location, _item_codes, _count in study_constructs:
+        source_name = "Behavioral Intention" if code == "BI" else name
+        require_contains(source_text, source_name, f"Source construct {code}", errors)
+        require_contains(master_text, name, f"Master construct {code}", errors)
+        require_contains(evidence_text, name, f"Evidence construct {code}", errors)
+
+    for code, _construct, source_wording, _prior_source in study_items:
+        require_contains(source_item_text, f"{code} {source_wording}", f"Source item {code}", errors)
+        require_contains(evidence_text, source_wording, f"Evidence item {code}", errors)
+        master_wording = source_wording.replace("use the when", "use them when") if code == "BI3" else source_wording
+        require_contains(master_text, master_wording, f"Master item {code}", errors)
+
+    for removed_code in ("CSE1", "PEC1", "CPLAY1", "CANX1", "IMG1", "RES1"):
+        if normalize(removed_code) in master_text:
+            errors.append(f"Removed questionnaire construct remains in master thesis: {removed_code}")
+
+    for label, text in (("master", master_text), ("evidence", evidence_text)):
+        for forbidden in ("preparedfordr", "preparedforprofessor", "professorkimi", "drqizhengu"):
+            if forbidden in text:
+                errors.append(f"Forbidden addressee wording in {label}: {forbidden}")
+
+    for forbidden in (
+        "directmodelreplication",
+        "contextualreplication",
+        "sourceaudit",
+        "auditmaster",
+        "sourceanomaly",
+        "draftstatus",
+        "noresultsareavailable",
+        "inserthere",
+        "correctionrequiresapproval",
+    ):
+        if forbidden in master_text:
+            errors.append(f"Meta/process wording remains in master thesis: {forbidden}")
+
+    source_pdf = pdfium.PdfDocument(SOURCE_PDF)
+    for page_number, page_image_path, crop_box, crop_path in SOURCE_IMAGES:
+        rendered = source_pdf[page_number].render(scale=2.4).to_pil()
+        saved_page = Image.open(page_image_path)
+        saved_crop = Image.open(crop_path)
+        if not same_pixels(rendered, saved_page):
+            errors.append(f"Source page image does not match PDF page index {page_number}")
+        if not same_pixels(saved_page.crop(crop_box), saved_crop):
+            errors.append(f"Published crop does not match source page image: {crop_path.name}")
+
+    tam3_source = ROOT / "source" / "Venkatesh_Bala_2008_TAM3_Figure_2.png"
+    tam3_output = ROOT / "outputs" / "Published_Framework_Venkatesh_Bala_TAM3_Figure_2.png"
+    if not same_pixels(Image.open(tam3_source), Image.open(tam3_output)):
+        errors.append("TAM3 framework output is not an exact copy of the published image asset")
+
+    miao_page = ROOT / "source" / "miao_page_9_framework.png"
+    miao_output = ROOT / "outputs" / "Published_Framework_Miao_2024_Figure_1_Direct_Crop.png"
+    if not same_pixels(Image.open(miao_page).crop((245, 175, 1125, 715)), Image.open(miao_output)):
+        errors.append("Miao framework crop does not match the source page render")
+
+    author_framework = ROOT / "outputs" / "Conceptual_Framework_Author_Constructed_Digital_Badges.png"
+    source_framework = SOURCE_IMAGES[0][3]
+    required_master_images = (tam3_output, miao_output, source_framework, author_framework)
+    required_evidence_images = required_master_images + (SOURCE_IMAGES[1][3], SOURCE_IMAGES[2][3])
+    for image_path in required_master_images:
+        if not docx_contains_exact_image(MASTER_DOCX, image_path):
+            errors.append(f"Master thesis does not contain exact image: {image_path.name}")
+    for image_path in required_evidence_images:
+        if not docx_contains_exact_image(EVIDENCE_DOCX, image_path):
+            errors.append(f"Evidence pack does not contain exact image: {image_path.name}")
+
+    if errors:
+        print("AUTHOR-FRAMEWORK AUDIT: FAIL")
+        for error in errors:
+            print(f"- {error}")
+        return 1
+
+    source_hash = hashlib.sha256(SOURCE_PDF.read_bytes()).hexdigest()
+    print("AUTHOR-FRAMEWORK AUDIT: PASS")
+    print("- Three published frameworks and one separate author-constructed framework are embedded")
+    print("- 4/4 study paths trace directly to published Steenkamp hypotheses and supported results")
+    print("- 5/5 construct labels match the published digital-badge framework")
+    print("- 18/18 questionnaire items trace to the published Appendix")
+    print("- Only BI3 contains the disclosed grammatical correction")
+    print("- Supervisor-facing manuscript contains none of the prohibited audit/drafting phrases")
+    print(f"- Steenkamp source PDF SHA-256: {source_hash}")
     return 0
 
 
