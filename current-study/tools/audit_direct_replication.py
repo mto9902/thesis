@@ -23,7 +23,7 @@ MASTER_DOCX = ROOT / "outputs" / "Master_Thesis_Digital_Badges_Thai_IT_Students.
 EVIDENCE_DOCX = ROOT / "outputs" / "Evidence_Pack_Author_Constructed_Framework_and_Questionnaire.docx"
 
 SOURCE_IMAGES = (
-    (10, ROOT / "source" / "steenkamp_page_10_model.png", (105, 100, 1175, 1205), ROOT / "outputs" / "Published_Framework_Steenkamp_Figure_1_Direct_Crop.png"),
+    (10, ROOT / "source" / "steenkamp_page_10_model.png", (105, 100, 1175, 1160), ROOT / "outputs" / "Published_Framework_Steenkamp_Figure_1_Direct_Crop.png"),
     (28, ROOT / "source" / "steenkamp_page_28_appendix.png", (110, 115, 1120, 1510), ROOT / "outputs" / "Published_Questionnaire_Steenkamp_Appendix_p28_Direct_Crop.png"),
     (29, ROOT / "source" / "steenkamp_page_29_appendix.png", (110, 115, 1120, 1135), ROOT / "outputs" / "Published_Questionnaire_Steenkamp_Appendix_p29_Direct_Crop.png"),
 )
@@ -281,7 +281,7 @@ def main() -> int:
 
     miao_page = ROOT / "source" / "miao_page_9_framework.png"
     miao_output = ROOT / "outputs" / "Published_Framework_Miao_2024_Figure_1_Direct_Crop.png"
-    if not same_pixels(Image.open(miao_page).crop((245, 175, 1125, 715)), Image.open(miao_output)):
+    if not same_pixels(Image.open(miao_page).crop((245, 175, 1125, 668)), Image.open(miao_output)):
         errors.append("Miao framework crop does not match the source page render")
 
     author_framework = ROOT / "outputs" / "Conceptual_Framework_Author_Constructed_Digital_Badges.png"

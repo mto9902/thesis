@@ -419,11 +419,11 @@ def prepare_source_excerpts() -> None:
     if missing:
         raise FileNotFoundError("Missing source render(s): " + ", ".join(missing))
 
-    Image.open(SOURCE_MODEL_PAGE).crop((105, 100, 1175, 1205)).save(MODEL_CROP)
+    Image.open(SOURCE_MODEL_PAGE).crop((105, 100, 1175, 1160)).save(MODEL_CROP)
     Image.open(SOURCE_APPENDIX_28).crop((110, 115, 1120, 1510)).save(APPENDIX_28_CROP)
     Image.open(SOURCE_APPENDIX_29).crop((110, 115, 1120, 1135)).save(APPENDIX_29_CROP)
     Image.open(SOURCE_TAM3_FIGURE).convert("RGB").save(TAM3_FIGURE, quality=95)
-    Image.open(SOURCE_MIAO_PAGE).crop((245, 175, 1125, 715)).save(MIAO_FIGURE, quality=95)
+    Image.open(SOURCE_MIAO_PAGE).crop((245, 175, 1125, 668)).save(MIAO_FIGURE, quality=95)
 
     width, height = 1800, 820
     canvas = Image.new("RGB", (width, height), "white")
@@ -1980,7 +1980,7 @@ def build_evidence_pack() -> None:
         doc,
         MODEL_CROP,
         "Figure 2.3: Published digital-badge research model",
-        width=5.25,
+        width=4.5,
         alt_text="Published Steenkamp digital-badge framework containing eleven constructs and thirteen directional relationships.",
     )
     add_source_note(doc, "Source: Steenkamp, Fisher, and Nesbit (2024, Figure 1, p. 10).")
