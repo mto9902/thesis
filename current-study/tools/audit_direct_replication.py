@@ -269,6 +269,7 @@ def main() -> int:
         ("Cronbach's alpha", "Cronbach's alpha analysis"),
         ("two multiple linear regression models", "Two-model multiple regression plan"),
         ("variance inflation factors", "VIF collinearity analysis"),
+        ("questionnaire will be administered in English", "English-language questionnaire"),
     ):
         require_contains(master_text, required, f"Master method: {label}", errors)
 
@@ -277,6 +278,8 @@ def main() -> int:
         "modelswillbeassessedusingplssem",
         "estimateh1h4insmartpls",
         "sevenpointlikertscaleonlinequestionnaire",
+        "translatedintothai",
+        "backtranslatedintoenglish",
     ):
         if forbidden in master_text:
             errors.append(f"Superseded method remains in master thesis: {forbidden}")

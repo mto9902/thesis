@@ -9,7 +9,7 @@ Treat this directory as the authoritative current study. Read `README.md`, `CURR
 - Preserve the 18 selected Appendix item statements. The field instrument uses the supervisor-requested five-point agreement scale; do not restore the source study's seven-point response format. Any item-wording change must be item-level, explicit, and confirmed before the pilot.
 - Preserve the direct source screenshots in the evidence pack. Do not present generated diagrams as screenshots from a published article.
 - Keep the disclosed BI3 correction from "use the when" to "use them when."
-- Describe Thailand, IT students, the IT micro-credential badge context, translation, pilot, and sampling as current-study decisions, not source-study features.
+- Describe Thailand, IT students, the IT micro-credential badge context, English-language administration, pilot, and sampling as current-study decisions, not source-study features.
 - Do not claim approval, pilot results, data, employer outcomes, or actual badge use before they exist.
 - The supervisor-facing proposal contains Chapters 1-4 only. Its analysis plan uses Cronbach's alpha, descriptive statistics, VIF, and two multiple linear regressions. Results and discussion are added after real pilot and main-study data exist.
 - Edit `tools/build_direct_replication.py`, rebuild the documents, visually inspect every rendered page, and run `tools/audit_direct_replication.py`.

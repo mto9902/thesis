@@ -29,6 +29,7 @@ The study asks what makes Thai IT students intend to use a university-issued dig
 - Five constructs: Perceived Ease of Use, Job Application Relevance, Perceived Usefulness, Subjective Norm, and Behavioural Intention to Use DB.
 - Four direct hypotheses, each corresponding to one arrow.
 - Eighteen statements retained from the matching construct sections of Steenkamp et al.'s published Appendix, administered on the requested five-point agreement scale.
+- The questionnaire will be administered in English to preserve the published item wording; the required pilot will check clarity and comprehension with Thai IT students.
 - One obvious source typo in BI3 is corrected from "use the when" to "use them when" and disclosed in both documents.
 - No interviews and no experimental vignettes.
 
@@ -53,10 +54,9 @@ The study asks what makes Thai IT students intend to use a university-issued dig
 ## What remains
 
 1. Finalize the English questionnaire and survey form from the 18 approved statements.
-2. Complete Thai forward translation and independent back-translation.
-3. Obtain ethics or administrative approval if required.
-4. Conduct the required 40-person pilot and document reliability results.
-5. Collect at least 384 usable main-study responses, with 400 as the recruitment target.
-6. Complete the two regression analyses and write Chapters 5 and 6.
+2. Obtain ethics or administrative approval if required.
+3. Conduct the required 40-person pilot and document clarity and reliability results.
+4. Collect at least 384 usable main-study responses, with 400 as the recruitment target.
+5. Complete the two regression analyses and write Chapters 5 and 6.
 
 The core framework and content have been accepted for continuation, but the pilot, main data collection, analysis, and results chapters do not yet exist.

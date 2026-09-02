@@ -233,6 +233,7 @@ MASTER_REFERENCES = sorted(
         reference
         for reference in REFERENCES
         if "A primer on partial least squares structural equation modeling" not in reference
+        and "Back-translation for cross-cultural research" not in reference
     ]
     + MASTER_METHOD_REFERENCES,
     key=str.casefold,
@@ -1909,16 +1910,17 @@ def build_master() -> None:
     )
     add_questionnaire(doc)
 
-    doc.add_heading("4.4 Translation and Pilot Testing", level=2)
+    doc.add_heading("4.4 Questionnaire Language and Pilot Testing", level=2)
     add_body(
         doc,
-        "The approved English questionnaire will be translated into Thai and independently back-translated "
-        "into English. Differences will be reconciled to preserve each construct's intended meaning (Brislin, "
-        "1970). Before the main survey, the Thai questionnaire will be pilot tested with 40 eligible Thai IT "
-        "students, consistent with the programme examples and published pilot-study guidance (Hertzog, 2008; "
-        "Johanson & Brooks, 2010). The pilot will assess screening logic, instructions, item comprehension, "
-        "completion time, missing responses, and preliminary internal consistency. Pilot participants will be "
-        "excluded from the main study."
+        "The questionnaire will be administered in English so that the 18 measurement statements retain the "
+        "wording of the published English instrument in Steenkamp et al. (2024). Before the main survey, the "
+        "English questionnaire will be pilot tested with 40 eligible Thai IT students, consistent with the "
+        "programme examples and published pilot-study guidance (Hertzog, 2008; Johanson & Brooks, 2010). The "
+        "pilot will assess screening logic, instructions, item clarity and comprehension, completion time, "
+        "missing responses, and preliminary internal consistency. Any comprehension problem identified in the "
+        "pilot will be reviewed before main data collection. Pilot participants will be excluded from the main "
+        "study."
     )
 
     doc.add_heading("4.5 Data Collection", level=2)

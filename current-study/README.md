@@ -15,7 +15,7 @@ The study uses an author-constructed conceptual framework made from published co
 
 All five exact construct labels, all four selected paths, and all 18 questionnaire items appear in Steenkamp, Fisher, and Nesbit (2024). TAM3 and the micro-credential model of Miao et al. (2024) provide additional theoretical and same-field support.
 
-The field questionnaire retains the 18 source statements on a five-point agreement scale. The analysis plan uses Cronbach's alpha, descriptive statistics, variance inflation factors, and two multiple linear regressions: one for H1-H2 and one for H3-H4.
+The English-language field questionnaire retains the 18 source statements on a five-point agreement scale. The required 40-person pilot checks clarity, comprehension, and reliability before main data collection. The analysis plan uses Cronbach's alpha, descriptive statistics, variance inflation factors, and two multiple linear regressions: one for H1-H2 and one for H3-H4.
 
 ## Start here
 
