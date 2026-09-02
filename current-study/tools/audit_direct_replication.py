@@ -264,6 +264,23 @@ def main() -> int:
         if forbidden in master_text:
             errors.append(f"Meta/process wording remains in master thesis: {forbidden}")
 
+    for required, label in (
+        ("five-point Likert agreement scale", "Five-point response scale"),
+        ("Cronbach's alpha", "Cronbach's alpha analysis"),
+        ("two multiple linear regression models", "Two-model multiple regression plan"),
+        ("variance inflation factors", "VIF collinearity analysis"),
+    ):
+        require_contains(master_text, required, f"Master method: {label}", errors)
+
+    for forbidden in (
+        "analysedusingpartialleastsquaresstructuralequationmodelling",
+        "modelswillbeassessedusingplssem",
+        "estimateh1h4insmartpls",
+        "sevenpointlikertscaleonlinequestionnaire",
+    ):
+        if forbidden in master_text:
+            errors.append(f"Superseded method remains in master thesis: {forbidden}")
+
     source_pdf = pdfium.PdfDocument(SOURCE_PDF)
     for page_number, page_image_path, crop_box, crop_path in SOURCE_IMAGES:
         rendered = source_pdf[page_number].render(scale=2.4).to_pil()

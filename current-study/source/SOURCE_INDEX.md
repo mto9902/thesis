@@ -33,7 +33,8 @@ Steenkamp, N., Fisher, R., and Nesbit, T. (2024). *Understanding accounting stud
 - Exact construct-item Appendix: article pp. 28-29 (PDF pp. 29-30).
 - Selected source paths: source H3, H8, H1, and H4.
 - Selected source items: PU1-PU4, PEOU1-PEOU4, SN1-SN4, REL1-REL3, and BI1-BI3.
-- Scale: seven-point agreement scale.
+- Source scale: seven-point agreement scale.
+- Current field scale: five-point agreement scale, documented as a supervisor-requested response-format adaptation; the 18 selected source statements remain unchanged except for the disclosed BI3 typo correction.
 - Source PDF SHA-256: `b4966d48b892f4fb041b1397937a25b1c3fec6c867d7a2b6ac758a4e67530752`.
 
 ### Direct retained source images

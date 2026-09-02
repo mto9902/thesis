@@ -36,7 +36,7 @@ The H1-H4 numbering belongs to the current thesis. The table preserves the sourc
 | Behavioural Intention to Use DB | BI1-BI3 | 3 |
 | **Total** |  | **18** |
 
-All items use Steenkamp et al.'s seven-point agreement scale. Do not paraphrase, shorten, add, or remove an item without documenting the proposed change and receiving supervisor confirmation. BI3 contains the only current correction: the source's apparent typo "use the when" is rendered as "use them when."
+Steenkamp et al. administered these items on a seven-point agreement scale. The current field instrument uses the supervisor-requested five-point scale from 1 (strongly disagree) to 5 (strongly agree). This is a response-format adaptation, not an item-wording change. Do not paraphrase, shorten, add, or remove an item without documenting the proposed change and receiving supervisor confirmation. BI3 contains the only current wording correction: the source's apparent typo "use the when" is rendered as "use them when."
 
 ## Context boundary
 

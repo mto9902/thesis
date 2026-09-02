@@ -222,6 +222,23 @@ REFERENCES = [
 ]
 
 
+MASTER_METHOD_REFERENCES = [
+    "Cronbach, L. J. (1951). Coefficient alpha and the internal structure of tests. Psychometrika, 16(3), 297-334. https://doi.org/10.1007/BF02310555",
+    "Dawes, J. (2008). Do data characteristics change according to the number of scale points used? An experiment using 5-point, 7-point and 10-point scales. International Journal of Market Research, 50(1), 61-104. https://doi.org/10.1177/147078530805000106",
+    "Hair, J. F., Black, W. C., Babin, B. J., and Anderson, R. E. (2019). Multivariate data analysis (8th ed.). Cengage.",
+]
+
+MASTER_REFERENCES = sorted(
+    [
+        reference
+        for reference in REFERENCES
+        if "A primer on partial least squares structural equation modeling" not in reference
+    ]
+    + MASTER_METHOD_REFERENCES,
+    key=str.casefold,
+)
+
+
 assert len(ITEMS) == 40
 
 SELECTED_CODES = ["PEOU", "REL", "PU", "SN", "BI"]
@@ -728,8 +745,15 @@ def add_hypotheses(doc: Document, hypotheses=HYPOTHESES) -> None:
         p.add_run(statement)
 
 
-def add_references(doc: Document, *, font_size: float = 10.5, space_after: float = 3) -> None:
-    for reference in REFERENCES:
+def add_references(
+    doc: Document,
+    *,
+    references: list[str] | None = None,
+    font_size: float = 10.5,
+    space_after: float = 3,
+) -> None:
+    reference_list = REFERENCES if references is None else references
+    for reference in reference_list:
         p = doc.add_paragraph(reference)
         p.paragraph_format.first_line_indent = Inches(-0.3)
         p.paragraph_format.left_indent = Inches(0.3)
@@ -755,23 +779,21 @@ def questionnaire_item_text(code: str, source_text: str) -> str:
 
 def add_questionnaire(doc: Document, *, include_sources: bool = True) -> None:
     scale_rows = [
-        ["1", "2", "3", "4", "5", "6", "7"],
+        ["1", "2", "3", "4", "5"],
         [
             "Strongly disagree",
-            "Moderately disagree",
-            "Somewhat disagree",
+            "Disagree",
             "Neutral",
-            "Somewhat agree",
-            "Moderately agree",
+            "Agree",
             "Strongly agree",
         ],
     ]
     add_table(
         doc,
         scale_rows,
-        [0.8854166667, 0.8854166667, 0.8854166667, 0.8854166667, 0.8854166667, 0.8854166667, 0.8875],
-        caption="Table 4.2: Seven-point agreement scale",
-        font_size=7.4,
+        [1.24, 1.24, 1.24, 1.24, 1.24],
+        caption="Table 4.2: Five-point agreement scale",
+        font_size=8.0,
     )
 
     grouped: dict[str, list[tuple[str, str, str]]] = {}
@@ -1418,9 +1440,10 @@ def build_master() -> None:
         "constructs: Perceived Ease of Use, Job Application Relevance, Perceived Usefulness, Subjective Norm, "
         "and Behavioural Intention to Use DB. A quantitative cross-sectional questionnaire survey will be "
         "conducted with students aged 18 years or older who are enrolled in IT-related university programmes "
-        "in Thailand. The questionnaire contains 18 seven-point Likert-scale items taken from Steenkamp et "
-        "al. (2024). After a pilot test with 40 eligible students, at least 384 usable responses will be "
-        "collected and analysed using partial least squares structural equation modelling. The study is "
+        "in Thailand. The questionnaire retains 18 measurement statements from Steenkamp et al. (2024) and "
+        "uses a five-point Likert agreement scale. After a pilot test with 40 eligible students, at least "
+        "384 usable responses will be collected. Data will be analysed using descriptive statistics, "
+        "Cronbach's alpha, collinearity diagnostics, and two multiple linear regression models. The study is "
         "intended to identify the beliefs most closely associated with students' intended use of digital "
         "badges and to inform university micro-credential and career-support practices.",
         no_indent=True,
@@ -1525,8 +1548,9 @@ def build_master() -> None:
         "postgraduate IT-related programmes at universities in Thailand. The focal object is a "
         "university-issued digital badge representing successful completion of an IT micro-credential and "
         "capable of being presented in a job application. The model contains five constructs and four "
-        "hypothesised relationships. Data will be collected using an 18-item, seven-point Likert-scale online "
-        "questionnaire, followed by PLS-SEM analysis. The study concerns students' perceptions and intended "
+        "hypothesised relationships. Data will be collected using an 18-item, five-point Likert-scale online "
+        "questionnaire. Descriptive statistics, Cronbach's alpha, variance inflation factors, and two multiple "
+        "linear regression models will be used for analysis. The study concerns students' perceptions and intended "
         "use; it does not measure employers' evaluations, actual employment outcomes, or actual badge use."
     )
 
@@ -1798,7 +1822,7 @@ def build_master() -> None:
                 variable_cell,
                 item_code,
                 questionnaire_item_text(item_code, source_text),
-                "7-point Likert",
+                "5-point Likert",
                 "Steenkamp et al. (2024)",
             ]
         )
@@ -1821,8 +1845,9 @@ def build_master() -> None:
         doc,
         "The study will use a quantitative, explanatory, cross-sectional survey design. This design is "
         "appropriate for measuring student perceptions and estimating the four hypothesised relationships at "
-        "one point in time. The five constructs will be measured reflectively, consistent with Steenkamp et "
-        "al. (2024), and the measurement and structural models will be assessed using PLS-SEM. The design can "
+        "one point in time. The five constructs will be measured using the published multi-item statements "
+        "selected from Steenkamp et al. (2024). Construct scores will be formed after internal-consistency "
+        "testing, and the four hypotheses will be examined using two multiple linear regression models. The design can "
         "identify associations and predictive relationships but cannot establish causal effects."
     )
 
@@ -1843,8 +1868,8 @@ def build_master() -> None:
         "student groups, and academic networks. The Krejcie and Morgan (1970) table provides 384 as a "
         "conventional benchmark for a large population under probability-sampling assumptions. The present "
         "non-probability sample cannot claim the corresponding margin of error, but 384 is retained as a "
-        "conservative minimum and exceeds the sample normally required for this five-construct PLS-SEM model "
-        "(Hair et al., 2022). The recruitment target will be 400 usable responses."
+        "conservative minimum for the descriptive and regression analyses. The recruitment target will be "
+        "400 usable responses to allow for incomplete or ineligible records."
     )
     doc.add_heading("4.2.3 Inclusion and Exclusion Criteria", level=3)
     add_body(
@@ -1870,14 +1895,17 @@ def build_master() -> None:
         ["A", "Participant information, consent, age, enrolment status, and field", "Confirm consent and eligibility"],
         ["B", "Neutral definition of an IT micro-credential and university-issued digital badge", "Provide a common referent"],
         ["C", "Age group, gender, study level, field, year, institution type, and prior badge awareness or use", "Describe the sample"],
-        ["D", "Eighteen statements measuring five model constructs", "Test the measurement and structural models"],
+        ["D", "Eighteen statements measuring five model constructs", "Assess reliability and test the hypotheses"],
     ]
     add_table(doc, instrument_rows, [0.65, 3.65, 1.9], caption="Table 4.1: Structure of the questionnaire", font_size=8.5)
     add_body(
         doc,
-        "All construct items will use the seven-point agreement scale employed by Steenkamp et al. (2024), "
-        "ranging from 1 (strongly disagree) to 7 (strongly agree). The complete English measurement instrument "
-        "is presented below."
+        "Steenkamp et al. (2024) administered the source statements with seven response categories. The "
+        "present study retains the 18 measurement statements but uses a five-point Likert agreement scale "
+        "ranging from 1 (strongly disagree) to 5 (strongly agree). This is a documented response-format "
+        "adaptation; the construct definitions, item assignments, and item wording remain unchanged except "
+        "for the disclosed BI3 grammatical correction. Five- and seven-point formats are both established "
+        "options for Likert-type measurement (Dawes, 2008). The complete English instrument is presented below."
     )
     add_questionnaire(doc)
 
@@ -1904,16 +1932,36 @@ def build_master() -> None:
     )
 
     doc.add_heading("4.6 Statistical Treatment of Data", level=2)
-    add_numbered(
+    add_body(
         doc,
-        [
-            "Screen records for consent, eligibility, duplicate submissions, missing data, completion quality, and coding errors.",
-            "Describe respondent characteristics using frequencies and percentages and summarize item and construct responses using means and standard deviations.",
-            "Assess the reflective measurement model using indicator loadings, Cronbach's alpha, composite reliability, average variance extracted, and heterotrait-monotrait ratios.",
-            "Assess structural-model collinearity using variance inflation factors and report R-squared values for Perceived Usefulness and Behavioural Intention to Use DB.",
-            "Estimate H1-H4 in SmartPLS using 5,000 bootstrap samples and report path coefficients, confidence intervals, p-values, and effect sizes (Hair et al., 2022).",
-            "Determine support for each hypothesis at the 5% significance level and compare the resulting pattern with Steenkamp et al. (2024) and the literature reviewed in Chapter 2.",
-        ],
+        "After data collection, records will be screened for consent, eligibility, duplicate submissions, "
+        "missing data, completion quality, and coding errors. Statistical analyses will be conducted using "
+        "jamovi. Frequencies and percentages will describe respondent demographics and prior digital-badge "
+        "experience. The mean and standard deviation will be reported for every measurement item. After the "
+        "reliability assessment, a composite score for each construct will be calculated as the mean of its "
+        "assigned items."
+    )
+    add_body(
+        doc,
+        "Internal consistency will be assessed separately for Perceived Ease of Use, Job Application "
+        "Relevance, Perceived Usefulness, Subjective Norm, and Behavioural Intention to Use DB using "
+        "Cronbach's alpha (Cronbach, 1951). Alpha values of .70 or higher will be treated as acceptable for "
+        "the study, while item-total information and the theoretical coverage of each published scale will "
+        "also be considered before any item is removed (Hair et al., 2019). Reliability will be reported for "
+        "both the pilot sample and the final sample."
+    )
+    add_body(
+        doc,
+        "Two multiple linear regression models will test the four hypotheses. In the first model, Perceived "
+        "Usefulness will be the dependent variable, with Perceived Ease of Use and Job Application Relevance "
+        "as independent variables; this model will test H1 and H2. In the second model, Behavioural Intention "
+        "to Use DB will be the dependent variable, with Perceived Usefulness and Subjective Norm as "
+        "independent variables; this model will test H3 and H4. Variance inflation factors will be examined "
+        "for collinearity, and residual diagnostics will be reviewed for the assumptions of multiple linear "
+        "regression (Hair et al., 2019). Each model will report R-squared, adjusted R-squared, the overall "
+        "F-test, unstandardized and standardized coefficients, standard errors, t-values, p-values, and "
+        "confidence intervals. A hypothesis will be supported when its coefficient is positive and its "
+        "p-value is below .05."
     )
 
     doc.add_heading("4.7 Ethical Considerations", level=2)
@@ -1928,7 +1976,7 @@ def build_master() -> None:
 
     doc.add_page_break()
     doc.add_heading("References", level=1)
-    add_references(doc)
+    add_references(doc, references=MASTER_REFERENCES)
     doc.save(MASTER_OUT)
 
 

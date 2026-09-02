@@ -1,6 +1,6 @@
 # Current State in Plain Language
 
-Updated: 22 August 2026
+Updated: 2 September 2026
 
 ## The short answer
 
@@ -28,7 +28,7 @@ The study asks what makes Thai IT students intend to use a university-issued dig
 
 - Five constructs: Perceived Ease of Use, Job Application Relevance, Perceived Usefulness, Subjective Norm, and Behavioural Intention to Use DB.
 - Four direct hypotheses, each corresponding to one arrow.
-- Eighteen seven-point Likert-scale statements copied from the matching construct sections of Steenkamp et al.'s published Appendix.
+- Eighteen statements retained from the matching construct sections of Steenkamp et al.'s published Appendix, administered on the requested five-point agreement scale.
 - One obvious source typo in BI3 is corrected from "use the when" to "use them when" and disclosed in both documents.
 - No interviews and no experimental vignettes.
 
@@ -38,7 +38,7 @@ The study asks what makes Thai IT students intend to use a university-issued dig
 - Population: Thai university students aged 18 or older in IT-related programs.
 - Pilot: 40 eligible students, excluded from the main sample.
 - Main target: at least 384 usable responses, with a recruitment target of 400.
-- Analysis: reflective measurement-model assessment and PLS-SEM with 5,000 bootstrap samples.
+- Analysis: Cronbach's alpha, demographic frequencies and percentages, item means and standard deviations, VIF, and two multiple linear regressions.
 
 ## What is ready
 
@@ -52,10 +52,11 @@ The study asks what makes Thai IT students intend to use a university-issued dig
 
 ## What remains
 
-1. Professor Kimi's confirmation of the revised framework and instrument.
-2. Thai forward translation and independent back-translation after English-item approval.
-3. Ethics or administrative approval if required.
-4. The required 40-person pilot and any documented corrections.
-5. Main data collection, analysis, results, discussion, and conclusion chapters.
+1. Finalize the English questionnaire and survey form from the 18 approved statements.
+2. Complete Thai forward translation and independent back-translation.
+3. Obtain ethics or administrative approval if required.
+4. Conduct the required 40-person pilot and document reliability results.
+5. Collect at least 384 usable main-study responses, with 400 as the recruitment target.
+6. Complete the two regression analyses and write Chapters 5 and 6.
 
-The package is source-complete for supervisor review, but it is not yet an approved or completed thesis.
+The core framework and content have been accepted for continuation, but the pilot, main data collection, analysis, and results chapters do not yet exist.
