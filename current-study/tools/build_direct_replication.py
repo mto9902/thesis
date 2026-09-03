@@ -1869,16 +1869,14 @@ def build_master() -> None:
         "student groups, and academic networks. The Krejcie and Morgan (1970) table provides 384 as a "
         "conventional benchmark for a large population under probability-sampling assumptions. The present "
         "non-probability sample cannot claim the corresponding margin of error, but 384 is retained as a "
-        "conservative minimum for the descriptive and regression analyses. The recruitment target will be "
-        "400 usable responses to allow for incomplete or ineligible records."
+        "conservative minimum for the descriptive and regression analyses. The study will seek 400 responses, "
+        "with at least 384 usable responses required after eligibility screening."
     )
     doc.add_heading("4.2.3 Inclusion and Exclusion Criteria", level=3)
     add_body(
         doc,
-        "Respondents will be included if they provide informed consent, are at least 18 years old, are "
-        "currently enrolled in an IT-related university programme in Thailand, and complete the construct "
-        "measures. Records will be excluded for failed eligibility screening, duplicate submission, "
-        "substantial missing data, or implausibly short completion time. Pilot participants will not be "
+        "Only records from respondents who provide informed consent, pass the eligibility screening, and "
+        "complete the construct measures will be included in the analysis. Pilot participants will not be "
         "included in the main-study dataset."
     )
 
@@ -1893,10 +1891,10 @@ def build_master() -> None:
     )
     instrument_rows = [
         ["Section", "Content", "Purpose"],
-        ["A", "Participant information, consent, age, enrolment status, and field", "Confirm consent and eligibility"],
-        ["B", "Neutral definition of an IT micro-credential and university-issued digital badge", "Provide a common referent"],
-        ["C", "Age group, gender, study level, field, year, institution type, and prior badge awareness or use", "Describe the sample"],
-        ["D", "Eighteen statements measuring five model constructs", "Assess reliability and test the hypotheses"],
+        ["A", "Participant information and informed consent", "Confirm voluntary participation"],
+        ["B", "Age, university enrolment, and IT-related field screening", "Confirm eligibility"],
+        ["C", "Demographic profile and prior badge awareness or use", "Describe the sample"],
+        ["D", "Neutral definition followed by 18 statements measuring five constructs", "Provide a common referent and test the hypotheses"],
     ]
     add_table(doc, instrument_rows, [0.65, 3.65, 1.9], caption="Table 4.1: Structure of the questionnaire", font_size=8.5)
     add_body(
@@ -1917,10 +1915,11 @@ def build_master() -> None:
         "wording of the published English instrument in Steenkamp et al. (2024). Before the main survey, the "
         "English questionnaire will be pilot tested with 40 eligible Thai IT students, consistent with the "
         "programme examples and published pilot-study guidance (Hertzog, 2008; Johanson & Brooks, 2010). The "
-        "pilot will assess screening logic, instructions, item clarity and comprehension, completion time, "
-        "missing responses, and preliminary internal consistency. Any comprehension problem identified in the "
-        "pilot will be reviewed before main data collection. Pilot participants will be excluded from the main "
-        "study."
+        "pilot will assess whether the instructions and measurement items are clear and understandable and will "
+        "provide preliminary internal-consistency evidence. The pilot form will include short feedback questions "
+        "about unclear wording; these questions will not form part of the construct analysis and will be removed "
+        "from the main survey. Any problem identified in the pilot will be reviewed before main data collection. "
+        "Pilot participants will be excluded from the main study."
     )
 
     doc.add_heading("4.5 Data Collection", level=2)
@@ -1936,8 +1935,8 @@ def build_master() -> None:
     doc.add_heading("4.6 Statistical Treatment of Data", level=2)
     add_body(
         doc,
-        "After data collection, records will be screened for consent, eligibility, duplicate submissions, "
-        "missing data, completion quality, and coding errors. Statistical analyses will be conducted using "
+        "After data collection, records will be screened for consent, eligibility, and completion of the "
+        "construct measures. Statistical analyses will be conducted using "
         "jamovi. Frequencies and percentages will describe respondent demographics and prior digital-badge "
         "experience. The mean and standard deviation will be reported for every measurement item. After the "
         "reliability assessment, a composite score for each construct will be calculated as the mean of its "
