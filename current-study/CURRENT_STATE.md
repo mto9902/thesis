@@ -1,6 +1,6 @@
 # Current State in Plain Language
 
-Updated: 2 September 2026
+Updated: 3 September 2026
 
 ## The short answer
 
@@ -49,13 +49,15 @@ The study asks what makes Thai IT students intend to use a university-issued dig
 - Definitions supported by multiple previous studies.
 - Relationship discussions supported by multiple previous studies.
 - Full questionnaire wording, construct codes, scale, and source citations.
+- A private, unpublished Google Forms pilot questionnaire containing consent, eligibility screening, demographics, all 18 five-point questionnaire items, and pilot feedback questions.
+- The Google Form has been checked in respondent preview, including consent and eligibility routing; no test response was submitted.
 - A separate evidence pack containing direct source images and an item-by-item audit.
 
 ## What remains
 
-1. Finalize the English questionnaire and survey form from the 18 approved statements.
-2. Obtain ethics or administrative approval if required.
-3. Conduct the required 40-person pilot and document clarity and reliability results.
+1. Review the private Google Form draft and obtain any required ethics or administrative approval before publishing it.
+2. Publish the approved form and conduct the required 40-person pilot.
+3. Review pilot feedback and document questionnaire clarity and reliability results.
 4. Collect at least 384 usable main-study responses, with 400 as the recruitment target.
 5. Complete the two regression analyses and write Chapters 5 and 6.
 
