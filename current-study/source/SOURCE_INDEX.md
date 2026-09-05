@@ -1,53 +1,59 @@
 # Source Index
 
-## Framework source 1: TAM3
+## Primary framework, hypothesis, variable, and questionnaire source
 
-Venkatesh, V., and Bala, H. (2008). *Technology acceptance model 3 and a research agenda on interventions*. Decision Sciences, 39(2), 273-315. https://doi.org/10.1111/j.1540-5915.2008.00192.x
+Hunsinger, D. S., and Smith, M. A. (2008). *Factors that influence information systems undergraduates to pursue IT certification*. Journal of Information Technology Education, 7, 247-265. https://doi.org/10.28945/188
 
-- Role: general theoretical structure for Perceived Ease of Use, Perceived Usefulness, Subjective Norm, Job Relevance, and Behavioural Intention.
-- Published framework used: Figure 2.
-- Local source image: `Venkatesh_Bala_2008_TAM3_Figure_2.png`.
-- Current output image: `../outputs/Published_Framework_Venkatesh_Bala_TAM3_Figure_2.png`.
-- It is supporting framework evidence, not the direct source of the final digital-badge item wording.
+- Role: closest published study to the current population and credential-pursuit decision.
+- Published framework: Figure 2, p. 251.
+- Published hypotheses: H1-H3 on p. 251.
+- Published questionnaire and scoring: pp. 252-254.
+- Pilot: 27 students completed the instrument twice, about three weeks apart.
+- Main sample: 120 US information-systems undergraduates.
+- Path results: Table 7 and p. 259; Attitude, Subjective Norm, and Perceived Behavioral Control each significantly and positively contributed to Behavioral Intention.
+- Questionnaire reliability: Behavioral Intention alpha .94 and test-retest r .64; Attitude alpha .92 and test-retest r .66; Subjective Norm test-retest r .56; Perceived Behavioral Control test-retest r .54.
+- Retained local article: `../../online-it-credentials-research/source/Hunsinger_Smith_2008_IT_Certification.pdf`.
+- Retained rendered page: `Hunsinger_Smith_2008_page_5.png`.
+- Direct framework crop: `Hunsinger_Smith_2008_Figure_2_Direct_Crop.png`.
 
-## Framework source 2: micro-credential context
+The direct crop is pixels `(205, 990, 1265, 1645)` from the retained rendered source page. Its boxes, arrows, labels, and lines were not redrawn or edited.
 
-Miao, M., Ahmed, M., Ahsan, N., and Qamar, B. (2024). *Intention to use technology for micro-credential programs: Evidence from technology acceptance and self-determination model*. International Journal of Educational Management, 38(4), 948-977. https://doi.org/10.1108/IJEM-02-2023-0066
+## Corroborating online-learning framework source
 
-- Role: published application of technology-acceptance variables in a micro-credential-program context.
-- Published framework used: Figure 1 on article p. 956 (PDF p. 9).
-- Local article: `Miao_2024_Microcredential_Technology_Acceptance.pdf`.
-- Local rendered page: `miao_page_9_framework.png`.
-- Current direct crop: `../outputs/Published_Framework_Miao_2024_Figure_1_Direct_Crop.png`.
-- It provides same-field support but is not the direct source of the final digital-badge item wording.
+Wang, K. (2023). *The perception and behavioral intention toward MOOCs: Undergraduates in China*. International Review of Research in Open and Distributed Learning, 24(1), 22-46. https://doi.org/10.19173/irrodl.v24i1.6677
 
-## Framework, path, variable, and questionnaire source
+- Role: independent undergraduate online-learning test of the same three TPB relationships.
+- Published framework: Figure 1, p. 26.
+- Matching hypotheses: source H3, H4, and H5 on p. 26.
+- Path results: Table 11 on p. 36; all three were supported.
+- Main sample: 525 undergraduates in China.
+- Retained local article: `../../online-it-credentials-research/source/Wang_2023_MOOC_TAM_TPB.pdf`.
+- Retained rendered page: `../../online-it-credentials-research/working/wang-2023-page-05.png`.
+- Direct framework crop: `Wang_2023_Figure_1_Direct_Crop.png`.
 
-Steenkamp, N., Fisher, R., and Nesbit, T. (2024). *Understanding accounting students' intentions to use digital badges to showcase employability skills*. Accounting Education, 33(6), 906-934. https://doi.org/10.1080/09639284.2023.2276200
+The direct crop is pixels `(145, 870, 770, 1455)` from the retained rendered source page. Its boxes, arrows, labels, and lines were not redrawn or edited.
 
-- Role: closest published digital-badge model and direct source for all final variable labels, selected relationships, and questionnaire statements.
-- Local article: `Steenkamp_2024_Digital_Badges.pdf`.
-- Published research model: Figure 1 on article p. 10 (PDF p. 11).
-- Published hypotheses: article pp. 11-13 (PDF pp. 12-14).
-- Path results: article Table 4.
-- Exact construct-item Appendix: article pp. 28-29 (PDF pp. 29-30).
-- Selected source paths: source H3, H8, H1, and H4.
-- Selected source items: PU1-PU4, PEOU1-PEOU4, SN1-SN4, REL1-REL3, and BI1-BI3.
-- Source scale: seven-point agreement scale.
-- Current field scale: five-point agreement scale, documented as a supervisor-requested response-format adaptation; the 18 selected source statements remain unchanged except for the disclosed BI3 typo correction.
-- Source PDF SHA-256: `b4966d48b892f4fb041b1397937a25b1c3fec6c867d7a2b6ac758a4e67530752`.
+## Source Reuse and Attribution
 
-### Direct retained source images
+The two core source PDFs and the source-page images needed for the audit are included in this noncommercial academic working package. Other downloaded papers remain excluded from Git unless their reuse terms are separately checked.
 
-- `steenkamp_page_10_model.png`
-- `steenkamp_page_28_appendix.png`
-- `steenkamp_page_29_appendix.png`
-- `../outputs/Published_Framework_Steenkamp_Figure_1_Direct_Crop.png`
-- `../outputs/Published_Questionnaire_Steenkamp_Appendix_p28_Direct_Crop.png`
-- `../outputs/Published_Questionnaire_Steenkamp_Appendix_p29_Direct_Crop.png`
+- Hunsinger and Smith (2008): the publisher's [JITE Research overview](https://www.informingscience.org/Journals/JITEResearch/Overview), checked on 5 September 2026, states that all journal articles are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). The original PDF is unchanged. Its framework is cropped from p. 251 without altering the diagram. The questionnaire changes the credential phrase and completes the printed blanks with the source's listed labels, with minor grammatical agreement for the general public.
+- Wang (2023): the [article page](https://www.irrodl.org/index.php/irrodl/article/view/6677), checked on 5 September 2026, licenses the work under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The PDF is unchanged; its framework is cropped from p. 26 without altering the diagram.
 
-The output excerpts are direct crops. Their source boxes, arrows, labels, questionnaire wording, and captions were not redrawn or edited.
+Copyright remains with the respective rightsholders. Neither author group endorses this thesis. Do not apply the thesis repository's own licensing terms to these third-party works.
 
-## Historical source
+## Context and comparison sources
 
-Kiiskila et al. (2023) supported the earlier expectancy-value-cost route. Its files remain only for audit history and are not part of the current framework.
+- Ajzen (1991): original Theory of Planned Behavior.
+- Council of the European Union (2022) and UNESCO (2022): micro-credential definitions.
+- Fianu et al. (2018), Mohan et al. (2020), and Wang (2023): online-learning intention context.
+- Miao et al. (2024): micro-credential programme technology-acceptance context.
+- Ilias et al. (2022): professional-certification intention among Malaysian students.
+- Steenkamp et al. (2024): university-issued digital-badge use in job applications.
+- Thai Ministry of Higher Education, Science, Research and Innovation (2022): Thai higher-education context.
+
+These sources support Chapter 1 and Chapter 2. They are not described as the direct source of the current questionnaire.
+
+## Historical material
+
+The prior university-issued digital-badge design remains recoverable from branch `backup/university-issued-digital-badges-2026-09-04` and tag `university-issued-digital-badges-backup-2026-09-04`. It is not the active study.

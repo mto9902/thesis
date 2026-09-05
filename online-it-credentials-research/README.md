@@ -1,8 +1,8 @@
 # Online IT Professional Certificate Research Reset
 
-Status date: 2026-09-04
+Status date: 2026-09-05
 
-This directory develops a possible replacement for the university-issued digital-badge study. It does not modify the backed-up thesis or its Google Form.
+This directory records the source search and selection process for the active short-online-certificate study. The finished supervisor-facing manuscript is under `../current-study/`. The backed-up university-issued digital-badge thesis and its Google Form remain unchanged.
 
 ## Backup status
 
@@ -10,11 +10,11 @@ This directory develops a possible replacement for the university-issued digital
 - Git tag: `university-issued-digital-badges-backup-2026-09-04`
 - Google Form copy: `BACKUP 2026-09-04 - University-Issued Digital Badges Pilot Questionnaire`
 
-## Proposed direction
+## Selected direction
 
-The proposed study asks why Thai university students in IT-related programmes intend to pursue short online IT professional certificates, such as assessed certificate programmes offered by Google, IBM, Microsoft, Meta, or universities through Coursera, edX, Udacity, or similar platforms.
+The active study asks why Thai university students in IT-related programmes intend to pursue short online IT professional certificates, such as assessed certificate programmes offered by Google, IBM, Microsoft, Meta, or universities through Coursera, edX, Udacity, or similar platforms.
 
-The safest model currently identified is a focused Theory of Planned Behavior model:
+The selected model is a focused Theory of Planned Behavior model:
 
 - Attitude -> behavioral intention
 - Subjective norm -> behavioral intention
@@ -30,8 +30,8 @@ These are not newly invented relationships. Hunsinger and Smith tested all three
 - `QUESTIONNAIRE_SOURCE_MAP.md`: item counts, locations, response formats, and required adaptation disclosure
 - `source/README.md`: official source links and page locations
 
-## Current decision boundary
+## Adaptation boundary
 
-No source located so far prints a complete, already-validated questionnaire using the exact phrase "short online IT professional certificate" for Thai IT students. A context change is therefore unavoidable. The academically honest route is to retain the published constructs, paths, item meanings, and time frame while disclosing one consistent target-phrase substitution.
+No source located prints a complete, already-validated questionnaire using the exact phrase "short online IT professional certificate" for Thai IT students. The active study therefore retains Hunsinger and Smith's published constructs, paths, item structures, response formats, scoring, and time frame while disclosing one consistent target-phrase substitution.
 
-The main thesis and live Google Form should not be rebuilt until this source package and direction are accepted.
+The thesis manuscript has been rebuilt. The live Google Form remains unchanged until the revised direction and questionnaire receive supervisor approval.

@@ -2,45 +2,66 @@
 
 ## Model status
 
-The conceptual framework is **constructed by the author** from published frameworks. It is a focused selection, not a reproduction of Steenkamp et al.'s complete model.
+The conceptual framework is **constructed by the author from published relationships**. It is not an invented model and it is not a copy of every path in either source framework.
 
-The thesis must show the three published frameworks before showing the author-constructed framework:
+The thesis shows these published frameworks first:
 
-1. Venkatesh and Bala (2008), TAM3, Figure 2.
-2. Miao et al. (2024), micro-credential technology-acceptance framework, Figure 1.
-3. Steenkamp, Fisher, and Nesbit (2024), digital-badge research model, Figure 1.
+1. Hunsinger and Smith (2008), Figure 2: IS students' intention to earn IT certification.
+2. Wang (2023), Figure 1: undergraduate MOOC intention using TAM and TPB.
 
 The conceptual-framework source line is:
 
-> Source: Constructed by the author based on Venkatesh and Bala (2008), Miao et al. (2024), and Steenkamp et al. (2024).
+> Source: Constructed by the author based on Hunsinger and Smith (2008) and Wang (2023).
 
-## Exact model
+## Exact model and hypotheses
 
-| Current hypothesis | Exact relationship | Steenkamp source path | Source result |
+| Current hypothesis | Current relationship | Hunsinger and Smith (2008) | Wang (2023) |
 |---|---|---|---|
-| H1 | Perceived Ease of Use -> Perceived Usefulness | H3 | Supported: beta = .671, p < .001 |
-| H2 | Job Application Relevance -> Perceived Usefulness | H8 | Supported: beta = .229, p = .047 |
-| H3 | Perceived Usefulness -> Behavioural Intention to Use DB | H1 | Supported: beta = .403, p = .010 |
-| H4 | Subjective Norm -> Behavioural Intention to Use DB | H4 | Supported: beta = .593, p < .001 |
+| H1 | Attitude -> Behavioral Intention | Source H1; tested and supported | Source H3; tested and supported |
+| H2 | Subjective Norm -> Behavioral Intention | Source H2; tested and supported | Source H4; tested and supported |
+| H3 | Perceived Behavioral Control -> Behavioral Intention | Source H3; tested and supported | Source H5; tested and supported |
 
-The H1-H4 numbering belongs to the current thesis. The table preserves the source study's original hypothesis number separately.
+Current hypothesis wording:
 
-## Exact questionnaire
+1. **H1:** Attitude toward pursuing a short online IT professional certificate is positively related to behavioral intention to pursue such a certificate within the next 12 months.
+2. **H2:** Subjective norm concerning pursuit of a short online IT professional certificate is positively related to behavioral intention to pursue such a certificate within the next 12 months.
+3. **H3:** Perceived behavioral control over pursuing a short online IT professional certificate is positively related to behavioral intention to pursue such a certificate within the next 12 months.
 
-| Construct | Item codes | Count |
-|---|---|---:|
-| Perceived Usefulness | PU1-PU4 | 4 |
-| Perceived Ease of Use | PEOU1-PEOU4 | 4 |
-| Subjective Norm | SN1-SN4 | 4 |
-| Job Application Relevance | REL1-REL3 | 3 |
-| Behavioural Intention to Use DB | BI1-BI3 | 3 |
-| **Total** |  | **18** |
+The construct names and directions are unchanged from the sources. Only the named target behavior is placed in the current context. Actual Behavior is omitted because the proposed cross-sectional survey does not observe later enrollment or completion.
 
-Steenkamp et al. administered these items on a seven-point agreement scale. The current field instrument uses the supervisor-requested five-point scale from 1 (strongly disagree) to 5 (strongly agree). This is a response-format adaptation, not an item-wording change. Do not paraphrase, shorten, add, or remove an item without documenting the proposed change and receiving supervisor confirmation. BI3 contains the only current wording correction: the source's apparent typo "use the when" is rendered as "use them when."
+## Exact questionnaire map
 
-## Context boundary
+| Construct | Response codes | Count | Published source |
+|---|---|---:|---|
+| Behavioral Intention | BI1-BI3 | 3 | Hunsinger and Smith (2008), p. 252 |
+| Attitude | ATT1-ATT3 | 3 | Hunsinger and Smith (2008), p. 253 |
+| Subjective Norm normative beliefs | SN-NB1-SN-NB6 | 6 | Hunsinger and Smith (2008), p. 253 |
+| Subjective Norm motivation to comply | SN-MC1-SN-MC6 | 6 | Hunsinger and Smith (2008), p. 253 |
+| Perceived Behavioral Control beliefs | PBC-CB1-PBC-CB4 | 4 | Hunsinger and Smith (2008), pp. 253-254 |
+| Perceived Behavioral Control facilitation | PBC-PF1-PBC-PF4 | 4 | Hunsinger and Smith (2008), pp. 253-254 |
+| **Total** |  | **26** |  |
 
-- Steenkamp et al.'s participants were New Zealand accounting students; the current participants are Thai IT students.
-- The measured object remains a university-issued digital badge used in job applications.
-- The survey introduction explains that the badge represents completion of an IT micro-credential.
-- The study measures student perceptions and intentions. It does not measure actual hiring, employer evaluations, employment outcomes, or actual badge use.
+The six published referents are IT managers, my professors, hiring managers, my advisors, my parents, and the general public. The four published control factors are learning ability, knowledge, skills, and money and resources.
+
+## Response formats and scoring
+
+- Behavioral Intention: seven-point bipolar agreement scale from -3 (strongly disagree) to +3 (strongly agree).
+- Normative and control belief strength: the published order from +3 (strongly agree) to -3 (strongly disagree).
+- Attitude: the three published seven-position semantic pairs, in published endpoint order: very good/very bad, very positive/very negative, and very helpful/very unhelpful. The paper does not assign printed numeric values to these endpoints, so the analysis codes the responses transparently with higher scores representing more favorable evaluations.
+- Motivation to comply: 1 (very undesirable) to 7 (very desirable).
+- Facilitation: 1 (much easier) to 7 (much more difficult), as printed in the source.
+- Behavioral Intention and Attitude: mean the three coded items within each construct.
+- Subjective Norm: multiply each normative belief by its matching motivation-to-comply response and sum the six products.
+- Perceived Behavioral Control: multiply each control belief by its matching facilitation response and sum the four products, following the published source procedure.
+
+Cronbach's alpha is appropriate for Attitude and Behavioral Intention. Hunsinger and Smith state that alpha is inappropriate for the separate Subjective Norm and Perceived Behavioral Control belief composites because the beliefs are not assumed to be interchangeable indicators.
+
+## Adaptation boundary
+
+The only contextual substitution is:
+
+> `IT certification` -> `short online IT professional certificate`
+
+The source prints blanks in the Subjective Norm and Perceived Behavioral Control stems and separately lists the exact referents and control factors. The field questionnaire inserts those published labels into their matching published stems. No additional belief content is introduced.
+
+Do not add, remove, paraphrase, reorder, or rescale a measurement item without documenting the change and obtaining supervisor approval.

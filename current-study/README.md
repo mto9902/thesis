@@ -2,29 +2,31 @@
 
 This folder is the portable working package for Min Thiha Oo's master's thesis.
 
-## Current study
+## Active study
 
-**Factors Influencing Thai IT Students' Intentions to Use University-Issued Digital Badges for IT Micro-Credentials in Job Applications: A Quantitative Study of Usefulness, Job Relevance, Ease of Use, and Social Influence**
+**Factors Influencing Thai IT Students' Intentions to Pursue Short Online IT Professional Certificates: A Theory of Planned Behavior Study**
 
-The study uses an author-constructed conceptual framework made from published constructs and published relationships. It is not a copy of one complete model. The final framework contains five constructs and four hypotheses:
+The target is an assessed, short online IT programme offered by a company or university through Coursera, edX, Udacity, or a similar platform. Examples include certificates from Google, IBM, Microsoft, Meta, and universities. The study asks why adult undergraduate IT students at universities in Thailand intend to pursue one within the next 12 months.
 
-1. Perceived Ease of Use -> Perceived Usefulness
-2. Job Application Relevance -> Perceived Usefulness
-3. Perceived Usefulness -> Behavioural Intention to Use DB
-4. Subjective Norm -> Behavioural Intention to Use DB
+The model uses the established core of the Theory of Planned Behavior:
 
-All five exact construct labels, all four selected paths, and all 18 questionnaire items appear in Steenkamp, Fisher, and Nesbit (2024). TAM3 and the micro-credential model of Miao et al. (2024) provide additional theoretical and same-field support.
+1. Attitude -> Behavioral Intention
+2. Subjective Norm -> Behavioral Intention
+3. Perceived Behavioral Control -> Behavioral Intention
 
-The English-language field questionnaire retains the 18 source statements on a five-point agreement scale. The required 40-person pilot checks clarity, comprehension, and reliability before main data collection. The analysis plan uses Cronbach's alpha, descriptive statistics, variance inflation factors, and two multiple linear regressions: one for H1-H2 and one for H3-H4.
+Hunsinger and Smith (2008) are the direct framework, hypothesis, variable, questionnaire, scoring, and time-horizon source. Wang (2023) supplies an independent published framework that tested and supported the same three paths among undergraduates in online learning. The study's own framework selects only these common paths and is labelled as constructed by the author.
+
+The English questionnaire adopts 26 measurement responses printed by Hunsinger and Smith (2008). The only contextual substitution is `IT certification` -> `short online IT professional certificate`. The source's constructs, referents, control factors, seven-point response formats, and 12-month time horizon are retained.
 
 ## Start here
 
-1. Read [CURRENT_STATE.md](CURRENT_STATE.md) for the plain-language status and remaining work.
-2. Read [FRAMEWORK_SPEC.md](FRAMEWORK_SPEC.md) for the exact constructs, hypotheses, questionnaire codes, and source mapping.
-3. Read [SOURCE_AUDIT.md](SOURCE_AUDIT.md) for the source-fidelity checks.
-4. Open `outputs/Master_Thesis_Digital_Badges_Thai_IT_Students.docx` for the supervisor-facing Chapters 1-4 manuscript.
-5. Open `outputs/Evidence_Pack_Author_Constructed_Framework_and_Questionnaire.docx` for the published diagrams, source screenshots, path results, and item-level evidence.
-6. Read [source/SOURCE_INDEX.md](source/SOURCE_INDEX.md) before changing any construct, arrow, hypothesis, or item.
+1. Read [CURRENT_STATE.md](CURRENT_STATE.md) for the plain-language status.
+2. Read [FRAMEWORK_SPEC.md](FRAMEWORK_SPEC.md) for the exact model, hypotheses, and questionnaire map.
+3. Read [SOURCE_AUDIT.md](SOURCE_AUDIT.md) for the source-fidelity result.
+4. Open `outputs/Master_Thesis_Online_IT_Professional_Certificates_Thai_Students.docx` for the active Chapters 1-4 manuscript and Appendix questionnaire.
+5. Read [source/SOURCE_INDEX.md](source/SOURCE_INDEX.md) before changing any variable, arrow, hypothesis, item, scale, referent, or control factor.
+
+No separate evidence pack is part of the current submission. The published frameworks, source mapping, and complete questionnaire are included in the thesis manuscript itself.
 
 ## Rebuild and audit
 
@@ -34,16 +36,15 @@ From the repository root:
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r current-study/tools/requirements.txt
-python current-study/tools/build_direct_replication.py
-python current-study/tools/audit_direct_replication.py
+python current-study/tools/build_online_certificates.py
+python current-study/tools/audit_online_certificates.py
 ```
 
-Use `--master-only` with the build command when only the thesis manuscript needs rebuilding.
+## Status boundaries
 
-## Package boundaries
-
-- The thesis manuscript currently contains proposal-stage Chapters 1-4. Results and discussion require real data.
-- `tools/build_direct_replication.py` is the editable source of truth despite its historical filename.
-- The old EVC route and the full 11-variable Steenkamp replication are historical drafts, not the current design.
-- Private correspondence, health information, AU credentials, proxy settings, participant data, and temporary renders are excluded from the portable package.
-- No approval, pilot result, main-study result, or employer outcome may be claimed before it exists.
+- Chapters 1-4 and the Appendix questionnaire are ready for supervisor review.
+- The required 40-student pilot has not yet been conducted.
+- Main data collection, results, discussion, and conclusions do not yet exist.
+- Do not claim approval, pilot findings, main-study findings, certificate completion, learning outcomes, employer recognition, salary effects, or employment outcomes before evidence exists.
+- The prior university-issued digital-badge study is preserved on branch `backup/university-issued-digital-badges-2026-09-04` and tag `university-issued-digital-badges-backup-2026-09-04`.
+- Private correspondence, health information, AU credentials, proxy settings, participant data, and temporary renders remain outside the portable package.

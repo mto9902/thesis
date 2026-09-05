@@ -1,27 +1,36 @@
 # Source-Fidelity Audit
 
-Updated: 2 September 2026
+Updated: 5 September 2026
 
 ## Decision rule
 
-A framework element passes only when its construct name and directional relationship can be located in a published framework or hypothesis. A questionnaire item passes only when its wording and construct mapping can be located in the published instrument. The author's framework may select and combine published elements, but it must identify the source of every box and arrow.
+A framework element passes only when the construct name and directional relationship can be located in a published framework or hypothesis. A questionnaire response passes only when its wording structure, referent or control factor, response anchors, and scoring procedure can be located in the published instrument. Every contextual change must be visible and disclosed.
 
 ## Current audit result
 
 | Element | Evidence | Result |
 |---|---|---|
-| Published frameworks | Venkatesh and Bala (2008), Figure 2; Miao et al. (2024), Figure 1; Steenkamp et al. (2024), Figure 1 | Pass |
-| Author framework | Five selected constructs and four selected paths, separately labelled as constructed by the author | Pass |
-| Construct labels | All five appear in Steenkamp et al. (2024), Figure 1 | Pass |
-| Relationships | All four appear as explicit Steenkamp hypotheses and were supported in that sample | Pass |
-| Hypothesis direction | All four preserve the published positive direction | Pass |
-| Questionnaire | PU1-PU4, PEOU1-PEOU4, SN1-SN4, REL1-REL3, and BI1-BI3 appear in the Steenkamp Appendix | Pass |
-| Scale | Steenkamp's seven-point source scale is documented; the field instrument uses the explicitly requested five-point adaptation while retaining all item statements | Pass with disclosed response-format adaptation |
-| Context changes | Thai IT population, English-language administration, and the local pilot are identified as current-study decisions | Pass |
-| Outcome boundary | Student intention is measured; actual employment and employer valuation are not claimed | Pass |
+| Primary published framework | Hunsinger and Smith (2008), Figure 2, p. 251 | Pass |
+| Corroborating published framework | Wang (2023), Figure 1, p. 26 | Pass |
+| Published source images | Pixel comparison with retained rendered source pages | Pass: unchanged direct crops |
+| Author framework | Three paths common to both published models; separately labelled as constructed by the author | Pass |
+| Construct labels | Attitude, Subjective Norm, Perceived Behavioral Control, and Behavioral Intention appear in both source models | Pass |
+| Relationship directions | Hunsinger source H1-H3 and Wang source H3-H5 | Pass |
+| Empirical support | Hunsinger and Smith (2008), Table 7 and p. 259; Wang (2023), Table 11 | Pass: all three paths supported in both samples |
+| Questionnaire | Hunsinger and Smith (2008), pp. 252-254 | Pass: 26 responses represented |
+| Referents | Six groups printed on p. 253 | Pass |
+| Control factors | Four factors printed on p. 253 | Pass |
+| Response formats | Source bipolar, semantic-differential, motivation, and facilitation scales | Pass |
+| Time horizon | Next 12 months | Pass |
+| Context change | `IT certification` changed consistently to the defined short online IT professional certificate | Pass with disclosed contextual substitution |
+| Outcome boundary | Intention only; no claim of completion, learning, employer recognition, salary, or employment effects | Pass |
 
-The executable audit in `tools/audit_direct_replication.py` checks the source PDF, direct source-image crops, selected labels and paths, all 18 questionnaire items, the disclosed BI3 correction, and both Word documents. Its final result must be `AUTHOR-FRAMEWORK AUDIT: PASS` before submission.
+The executable audit in `tools/audit_online_certificates.py` checks the two source PDFs, direct source-image crops, the three paths, all 26 questionnaire response codes and complete item-table wording, required thesis sections, prohibited old wording, and the images embedded in the Word manuscript. Its current result is:
 
-## Important interpretation
+> ONLINE-CERTIFICATE SOURCE-FIDELITY AUDIT: PASS
 
-"Constructed by the author" does not mean invented without evidence. It means the author selected a smaller set of published constructs and published relationships for a new context, showed the source frameworks first, and cited the construction clearly.
+## Honest limitation
+
+The source questionnaire was developed for predominantly traditional IT certifications. The current study changes the target phrase so respondents answer about assessed short online IT professional certificates. That is a real contextual adaptation, not a verbatim replication. It is disclosed throughout the manuscript and is one reason the required pilot is necessary.
+
+The direct framework, variables, path directions, item structures, referents, control factors, scales, scoring rules, and time horizon are published rather than invented.

@@ -1,2 +1,5 @@
 source/*.pdf
 working/*
+!source/Hunsinger_Smith_2008_IT_Certification.pdf
+!source/Wang_2023_MOOC_TAM_TPB.pdf
+!working/wang-2023-page-05.png
