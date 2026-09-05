@@ -42,7 +42,7 @@ python current-study/tools/audit_online_certificates.py
 
 ## Status boundaries
 
-- Chapters 1-4 and the Appendix questionnaire are ready for supervisor review.
+- Chapters 1-4 and the Appendix questionnaire are written, but the supervisor-feedback comparison identified unresolved scale, definition-depth, and reliability-plan issues. Read the status correction in `CURRENT_STATE.md` before treating the draft as ready for submission or pilot testing.
 - The required 40-student pilot has not yet been conducted.
 - Main data collection, results, discussion, and conclusions do not yet exist.
 - Do not claim approval, pilot findings, main-study findings, certificate completion, learning outcomes, employer recognition, salary effects, or employment outcomes before evidence exists.

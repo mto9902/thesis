@@ -2,6 +2,20 @@
 
 Updated: 5 September 2026
 
+## Status Correction After Supervisor-Feedback Comparison
+
+The manuscript is a source-checked working draft, not yet submission-ready or pilot-ready. Source fidelity is not the same as compliance with the supervisor's instructions. Do not present the earlier readiness statement below as a completed supervisor-compliance review.
+
+- The draft uses seven-point formats, while the supervisor recommended a five-point agreement scale.
+- Chapter 2 does not yet contain four published definitions per variable followed by the study's own definition.
+- Cronbach's alpha is planned for only Attitude and Behavioral Intention. The borrowed Subjective Norm and Perceived Behavioral Control measures are belief-product composites; the source says alpha is inappropriate for them. The reliability plan for the current population remains unresolved for these two variables.
+- The model has three predictors of one outcome, so one regression is coherent. The earlier two-regression instruction belonged to the prior two-outcome-path model; it is not a universal requirement to run every future model twice.
+- Definitions, theory development, significance, and the requested three-to-four-limitations presentation need a final compliance revision. Keep the node label Behavioral Intention exact; explain the target behavior in the caption rather than appending to Pursue to the variable label.
+- The previous badge-study approval does not establish approval of this new target behavior, model, and questionnaire.
+- Keep the online-certificate topic and TPB framework while resolving these points. Do not silently switch the questionnaire, rescale the belief products, or reopen topic selection.
+
+The complete current questions are in `outputs/Questionnaire_Current_Draft_Readable.txt`. This is an extraction of Appendix A, not a replacement instrument. The main Word manuscript and Google Form were not changed during this comparison.
+
 ## The short answer
 
 The active thesis is now about **why Thai IT students would pursue short online IT professional certificates available through platforms such as Coursera**. It is no longer limited to university-issued digital badges used in job applications.
@@ -42,7 +56,7 @@ The questionnaire changes only the name of the target from `IT certification` to
 
 ## What is ready
 
-- A 23-page supervisor-facing thesis manuscript containing Chapters 1-4.
+- A 23-page working thesis manuscript containing Chapters 1-4, pending the compliance corrections above.
 - Two unchanged published framework crops and one clearly labelled author-constructed framework.
 - Three matching objectives, research questions, hypotheses, and arrows.
 - A complete Appendix questionnaire with consent, separate eligibility checks, demographics, credential definition, and all 26 measurement responses.

@@ -2,6 +2,8 @@
 
 Updated: 5 September 2026
 
+This audit tests source fidelity only. It does not establish suitability for the new population, compliance with the supervisor's five-point-scale recommendation, completion of the literature requirements, approval, or readiness for fieldwork. The comparison with supervisor feedback identified open issues recorded at the top of `CURRENT_STATE.md`.
+
 ## Decision rule
 
 A framework element passes only when the construct name and directional relationship can be located in a published framework or hypothesis. A questionnaire response passes only when its wording structure, referent or control factor, response anchors, and scoring procedure can be located in the published instrument. Every contextual change must be visible and disclosed.

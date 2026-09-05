@@ -1,0 +1,229 @@
+CURRENT DRAFT QUESTIONNAIRE
+Short Online IT Professional Certificates
+
+STATUS: For review, not ready for data collection.
+This is a readable extraction of Appendix A in the current thesis, not a new instrument.
+It preserves the current seven-point formats. These still need to be reconciled with
+Professor Kimi's five-point recommendation. The reliability plan also needs review.
+Published reliability figures below belong to the source study, not our Thai sample.
+
+There are 26 measurement responses, plus consent, 3 eligibility checks, and 6 profile questions.
+
+APPENDIX A: QUESTIONNAIRE
+
+Questionnaire items are adopted from Hunsinger and Smith (2008, pp. 252-254). The target phrase
+'IT certification' is replaced consistently with 'short online IT professional certificate' to
+match the defined behavior. The constructs, referent groups, response anchors, and 12-month time
+horizon are otherwise retained.
+
+Full source: Hunsinger, D. S., and Smith, M. A. (2008). Factors that influence information
+systems undergraduates to pursue IT certification. Journal of Information Technology Education,
+7, 247-265. https://doi.org/10.28945/188.
+
+Participant Information and Consent
+
+This questionnaire is part of a master's research study about Thai IT students' intentions to
+pursue short online IT professional certificates. Participation is voluntary. No name or email
+address is requested. Responses will be reported only in aggregate form. A respondent may leave
+the questionnaire before submission without penalty.
+
+Table A.1: Informed consent
+
+I have read the information above and voluntarily agree to participate.
+Options: Yes / No
+
+Eligibility
+
+Table A.2: Eligibility questions
+
+Are you 18 years of age or older?
+Options: Yes / No
+
+Are you currently enrolled as an undergraduate student at a university in Thailand?
+Options: Yes / No
+
+Are you studying an IT-related programme?
+Options: Yes / No
+
+A 'No' response to any eligibility question ends the questionnaire.
+
+Respondent Profile
+
+Table A.3: Respondent profile
+
+Age group
+Options: 18-20 / 21-23 / 24-26 / 27 or older / Prefer not to say
+
+Gender
+Options: Woman / Man / Non-binary or another identity / Prefer not to say
+
+Year of undergraduate study
+Options: Year 1 / Year 2 / Year 3 / Year 4 / Year 5 or later
+
+IT-related field of study
+Options: Information Technology / Information Systems / Computer Science / Software Engineering
+/ Cybersecurity / Data Science / Computer Engineering / Other closely related field
+
+Before today, had you heard of short online IT professional certificates?
+Options: Yes / No / Not sure
+
+Have you ever enrolled in one?
+Options: No / Yes, but did not complete it / Yes, and completed at least one
+
+Credential Definition
+
+In this questionnaire, a short online IT professional certificate means an assessed online
+programme in an IT-related field that is offered by a company or university through a platform
+such as Coursera, edX, Udacity, or a similar service. It is shorter than a degree and provides a
+certificate after successful completion. Please answer with this type of certificate in mind.
+
+Behavioral Intention
+
+For each statement, select one response from -3 (strongly disagree) to +3 (strongly agree), with
+0 as neutral.
+
+Table A.4: Behavioral Intention items
+
+BI1: I plan to earn a short online IT professional certificate in the next twelve months.
+
+BI2: I intend to pursue a short online IT professional certificate in the next twelve months.
+
+BI3: To the extent possible, I plan to pursue a short online IT professional certificate in the
+next twelve months.
+
+Attitude
+
+Complete the statement 'For me, pursuing a short online IT professional certificate in the next
+twelve months is a ... idea' by marking one of seven positions between each pair of endpoints.
+The endpoint order follows the published instrument.
+
+Table A.5: Attitude items
+
+ATT1: Very good <--- select one of seven positions ---> Very bad
+
+ATT2: Very positive <--- select one of seven positions ---> Very negative
+
+ATT3: Very helpful <--- select one of seven positions ---> Very unhelpful
+
+Subjective Norm
+
+For each referent, first rate the normative-belief statement from +3 (strongly agree) to -3
+(strongly disagree). Then rate the motivation-to-comply statement from 1 (very undesirable) to 7
+(very desirable).
+
+Table A.6: Subjective Norm items
+
+SN-NB1: IT managers think I should pursue a short online IT professional certificate within the
+next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+SN-MC1: Generally speaking, I do what IT managers think I should do.
+Response scale: 1 to 7 (see the anchors above).
+
+SN-NB2: My professors think I should pursue a short online IT professional certificate within
+the next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+SN-MC2: Generally speaking, I do what my professors think I should do.
+Response scale: 1 to 7 (see the anchors above).
+
+SN-NB3: Hiring managers think I should pursue a short online IT professional certificate within
+the next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+SN-MC3: Generally speaking, I do what hiring managers think I should do.
+Response scale: 1 to 7 (see the anchors above).
+
+SN-NB4: My advisors think I should pursue a short online IT professional certificate within the
+next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+SN-MC4: Generally speaking, I do what my advisors think I should do.
+Response scale: 1 to 7 (see the anchors above).
+
+SN-NB5: My parents think I should pursue a short online IT professional certificate within the
+next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+SN-MC5: Generally speaking, I do what my parents think I should do.
+Response scale: 1 to 7 (see the anchors above).
+
+SN-NB6: The general public thinks I should pursue a short online IT professional certificate
+within the next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+SN-MC6: Generally speaking, I do what the general public thinks I should do.
+Response scale: 1 to 7 (see the anchors above).
+
+Perceived Behavioral Control
+
+For each control factor, first rate the control-belief statement from +3 (strongly agree) to -3
+(strongly disagree). Then rate the facilitation statement from 1 (much easier) to 7 (much more
+difficult).
+
+Table A.7: Perceived Behavioral Control items
+
+PBC-CB1: I have the learning ability to earn a short online IT professional certificate within
+the next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+PBC-PF1: For me, having the learning ability to pursue a short online IT professional
+certificate would make it [much easier---much more difficult] to earn a short online IT
+professional certificate in the next twelve months.
+Response scale: 1 to 7 (see the anchors above).
+
+PBC-CB2: I have the knowledge to earn a short online IT professional certificate within the next
+twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+PBC-PF2: For me, having the knowledge to pursue a short online IT professional certificate would
+make it [much easier---much more difficult] to earn a short online IT professional certificate
+in the next twelve months.
+Response scale: 1 to 7 (see the anchors above).
+
+PBC-CB3: I have the skills to earn a short online IT professional certificate within the next
+twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+PBC-PF3: For me, having the skills to pursue a short online IT professional certificate would
+make it [much easier---much more difficult] to earn a short online IT professional certificate
+in the next twelve months.
+Response scale: 1 to 7 (see the anchors above).
+
+PBC-CB4: I have the money and resources to earn a short online IT professional certificate
+within the next twelve months.
+Response scale: +3 to -3 (see the anchors above).
+
+PBC-PF4: For me, having the money and resources to pursue a short online IT professional
+certificate would make it [much easier---much more difficult] to earn a short online IT
+professional certificate in the next twelve months.
+Response scale: 1 to 7 (see the anchors above).
+
+Questionnaire Source and Use
+
+Full source citation: Hunsinger, D. S., and Smith, M. A. (2008). Factors that influence
+information systems undergraduates to pursue IT certification. Journal of Information Technology
+Education, 7, 247-265. https://doi.org/10.28945/188. The source instrument appears on pp.
+252-254. The field questionnaire above retains its four core TPB constructs, referents, control
+factors, response anchors, and 12-month time horizon.
+
+Table A.8: Published questionnaire evidence
+
+Construct: Behavioral Intention; Source location: p. 252; Published evidence: Three items; alpha
+= .94; test-retest r = .64
+
+Construct: Attitude; Source location: p. 253; Published evidence: Three semantic evaluations;
+alpha = .92; test-retest r = .66
+
+Construct: Subjective Norm; Source location: p. 253; Published evidence: Six paired beliefs;
+test-retest r = .56
+
+Construct: Perceived Behavioral Control; Source location: pp. 253-254; Published evidence: Four
+paired control beliefs; test-retest r = .54
+
+Questionnaire adapted from Hunsinger and Smith (2008), with 'IT certification' replaced by
+'short online IT professional certificate' and the published blanks completed using the
+published referents and control factors. The publisher licenses the journal's articles under CC
+BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/;
+https://www.informingscience.org/Journals/JITEResearch/Overview). No endorsement by the original
+authors is implied.
