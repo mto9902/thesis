@@ -1,6 +1,14 @@
 # Current State in Plain Language
 
-Updated: 3 September 2026
+Updated: 5 September 2026
+
+## Restored Active Study
+
+The user chose to return to the university-issued digital-badge thesis that Professor Kimi accepted for continuation. The manuscript is restored from the saved `20a208a` version, including the later five-point scale, English administration, methodology, and pilot-screening simplifications. This restoration does not alter the Word manuscript, its five variables, its four hypotheses, or its 18 measurement items.
+
+The Coursera-style online-certificate TPB alternative is parked on branch `backup/online-it-certificates-2026-09-05` at commit `d480215`. It retains the draft, readable questionnaire, core source papers, and the notes identifying unresolved supervisor-alignment issues. A separate local checkout is at `../../online-it-certificates-backup-2026-09-05` relative to this repository root. Do not use that alternative as the current study.
+
+The main submission remains one thesis Word file, with no evidence pack attached. The Google Form was not changed during the restoration. The next task remains reviewing the existing badge-study form and completing the required pilot, not rebuilding the model.
 
 ## The short answer
 
